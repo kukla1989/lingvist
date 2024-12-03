@@ -1,0 +1,32 @@
+@mixin onPhone {
+  @media (max-width: 619px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 620px) {
+    @content;
+  }
+}
+
+.card {
+  padding: 50px;
+
+  background-color: $cWhite;
+  border-radius: 30px;
+
+  @include onPhone {
+    padding: 25px;
+    min-width: 85%;
+    max-height: 300px;
+
+    border-radius: 15px;
+  }
+
+  @include onDesktop {
+    min-width: 60%;
+    max-width: 1300px;
+    min-height: 300px;
+  }
+}
