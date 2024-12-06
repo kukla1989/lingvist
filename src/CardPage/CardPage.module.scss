@@ -1,0 +1,8 @@
+@use '../_utils/mixins' as *;
+
+.cardPage {
+}
+
+.card {
+  @include card;
+}

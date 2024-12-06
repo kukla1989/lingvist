@@ -1,0 +1,29 @@
+@use '../_utils/mixins' as *;
+@use '../_utils/vars' as *;
+
+.addWordsPage{
+  @include card;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+
+  @include onPhone {
+    gap: 15px;
+  }
+}
+
+.input {
+  height: 50px;
+  min-width: 100px;
+  width: auto;
+  padding: 0 15px;
+
+  color: $cTeal;
+  border: none;
+  background-color: $cGrayLightInput;
+  outline: none;
+  border-radius: 10px;
+}
