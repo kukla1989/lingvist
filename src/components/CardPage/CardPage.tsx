@@ -3,8 +3,9 @@ import styles from './CardPage.module.scss';
 const CardPage = () => {
   return (
     <div className={styles.cardPage}>
-      cardpage
-      <div className={styles.card}>cardpage</div>
+      <div className={styles.card}>
+        <div className="info">cardPage</div>
+      </div>
     </div>
   );
 };

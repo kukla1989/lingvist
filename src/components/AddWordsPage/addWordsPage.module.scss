@@ -1,5 +1,5 @@
-@use '../_utils/mixins' as *;
-@use '../_utils/vars' as *;
+@use '../../_utils/mixins' as *;
+@use '../../_utils/vars' as *;
 
 .addWordsPage{
   @include card;
