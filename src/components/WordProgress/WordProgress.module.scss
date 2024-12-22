@@ -1,0 +1,34 @@
+@use '../../_utils/vars' as *;
+
+.repeatRemain {
+  display: flex;
+  flex-direction: row;
+  gap: 3px;
+}
+
+.level {
+  background-color: $cGray;
+  width: 16px;
+  height: 4px;
+  border-radius: 4px;
+}
+
+.orange {
+  background-color: $cLightOrange;
+}
+
+.lightBlue {
+background-color: $cLightBlue;
+}
+
+.blue {
+  background-color: $cBlue;
+}
+
+.darkBlue {
+  background-color: $cDarkBlue;
+}
+
+.green {
+  background-color: $cLightGreen;
+}
