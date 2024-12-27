@@ -46,7 +46,11 @@ const WordProgress: React.FC<WordProgressProps> = ({ level }) => {
     );
   }
 
-  return <div className={styles.repeatRemain}>{levels}</div>;
+  return <div className={styles.wordProgress}>
+    {levels}
+    <div className={styles.learnMore}>дізнатися більше</div>
+    
+    </div>;
 };
 
 export default WordProgress;
