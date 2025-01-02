@@ -7,28 +7,31 @@
 }
 
 @mixin onDesktop {
-  @media (min-width: 620px) {
+  @media (min-width: 1024px) {
     @content;
   }
 }
 
 @mixin card {
+  width: 90%;
   padding: 50px;
+  margin: 40px;
 
   background-color: $cWhite;
   border-radius: 30px;
 
   @include onPhone {
+    width: 320px;
     padding: 25px;
     min-width: 85%;
     max-height: 300px;
+    margin: 10px;
 
     border-radius: 15px;
   }
 
   @include onDesktop {
-    min-width: 60%;
-    max-width: 1300px;
+    width: 700px;
     min-height: 300px;
   }
 }
