@@ -14,17 +14,15 @@
 
 @mixin card {
   width: 90%;
-  padding: 50px;
+  padding: 20px;
   margin: 40px;
 
-  background-color: $cWhite;
   border-radius: 30px;
 
   @include onPhone {
     width: 320px;
-    padding: 25px;
+    padding: 10px;
     min-width: 85%;
-    max-height: 300px;
     margin: 10px;
 
     border-radius: 15px;
@@ -32,6 +30,5 @@
 
   @include onDesktop {
     width: 700px;
-    min-height: 300px;
   }
 }

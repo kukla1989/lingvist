@@ -4,6 +4,7 @@ import styles from "./CardPage.module.scss";
 const sentence1 = "Where are you? – I am at";
 const sentence2 = '.';
 const word = "home";
+const wordTranslate = 'дім';
 
 const CardPage = () => {
   const [userWord, setUserWord] = useState("");
@@ -24,6 +25,10 @@ const CardPage = () => {
             style={{ width: 8 * word.length + 30 + "px" }}
           />
           <span className={styles.senteceEnd}>{sentence2}</span>
+        </div>
+
+        <div className={styles.wordTranslate}>
+          {wordTranslate}
         </div>
       </div>
     </div>

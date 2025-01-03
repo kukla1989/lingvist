@@ -9,6 +9,8 @@
 }
 
 .card {
+  background-image: linear-gradient(to bottom, $cWhite 60%, $cLighterGray 40%);
+
   @include card;
 }
 
@@ -28,4 +30,8 @@
 
 .sentence {
   color: $cTeal;
+}
+
+.wordTranslate {
+  margin: 70px 0 30px 30px
 }
