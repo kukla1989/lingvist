@@ -1,12 +1,10 @@
-import style from './App.module.scss';
-// import AddWordsPage from "./components/AddWordsPage/addWordsPage";
-import CardPage from "./components/CardPage/CardPage";
+import { Outlet } from "react-router-dom";
+import style from "./App.module.scss";
 
 export const App: React.FC = () => {
   return (
     <div className={style.app}>
-      {/* <AddWordsPage /> */}
-      <CardPage />
+      <Outlet />
     </div>
   );
 };
