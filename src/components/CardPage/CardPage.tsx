@@ -10,7 +10,6 @@ const CardPage = () => {
   const [userWord, setUserWord] = useState("");
   const onSetWord = (e: React.ChangeEvent<HTMLInputElement>) =>
     setUserWord(e.target.value);
-  console.log(userWord, "word");
 
   return (
     <div className={styles.cardPage}>

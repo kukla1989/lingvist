@@ -1,16 +1,19 @@
-@use '../../_utils/mixins' as *;
-@use '../../_utils/vars' as *;
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
 
-.addWordsPage{
+.addWordsPage {
+}
+
+.card {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
   background-color: $cWhite;
-  
+
   @include card;
-  
+
   @include onPhone {
     gap: 15px;
   }
@@ -22,6 +25,7 @@
   width: auto;
   padding: 0 15px;
 
+  font-size: 24px;
   color: $cTeal;
   border: none;
   background-color: $cGrayLightInput;

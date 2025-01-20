@@ -1,0 +1,85 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+$menuWidth: 35px;
+
+.menu {
+  width: $menuWidth;
+  height: 100vh;
+  padding: 20px;
+
+  transition: width $transition-duration ease;
+  background-color: $cWhite;
+  overflow: hidden;
+
+  &:hover {
+    width: 200px;
+  }
+
+  @include onPhone {
+    padding: 5px;
+
+    &:hover {
+      width: $menuWidth;
+    }
+  }
+}
+
+.logo {
+  margin-bottom: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 20px;
+
+  @include onPhone {
+    margin: 10px 0 20px 5px;
+  }
+}
+
+.nav {
+  width: 180px;
+}
+
+.navlist {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navitem {
+  text-decoration: none;
+  border-radius: 10px;
+  transition: background-color $transition-duration ease;
+
+  &:hover {
+    background-color: $cGray300;
+  }
+}
+
+$menuItemWidth: 40px;
+
+.iconWrapper {
+  width: $menuItemWidth;
+  height: $menuItemWidth;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navlink {
+  height: $menuItemWidth;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  text-decoration: none;
+  color: $cBlueGray;
+  border-radius: 10px;
+}
+
+.active {
+  background-color: $cViolet;
+}
