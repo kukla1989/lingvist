@@ -1,0 +1,23 @@
+.add-words-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+
+  @include onPhone {
+    gap: 15px;
+  }
+
+  &__input {
+    height: 50px;
+    min-width: 100px;
+    width: auto;
+    padding: 0 15px;
+
+    border: none;
+    background-color: $cGrayLightInput;
+    outline: none;
+    border-radius: 10px;
+  }
+}

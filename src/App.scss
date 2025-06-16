@@ -1,5 +1,10 @@
-.starter {
-  font-size: 18px;
-}
+@import "./_utils/vars";
+@import "./_utils/mixins";
 
-@import './Main/Main.scss';
+@import "./Main/Main.scss";
+@import "./AddWordsPage/addWordsPage.scss";
+
+body, input {
+  font-family: "Noto Serif", "Times New Roman", serif;
+  font-size: 22px;
+}
