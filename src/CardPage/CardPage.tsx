@@ -1,7 +1,10 @@
+import styles from './CardPage.module.scss';
+
 const CardPage = () => {
   return (
-    <div className="card-page">
-      <div className="card"></div>
+    <div className={styles.cardPage}>
+      cardpage
+      <div className={styles.card}>cardpage</div>
     </div>
   );
 };
