@@ -2,14 +2,14 @@
 @use '../../_utils/vars' as *;
 
 .addWordsPage{
-  @include card;
-
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   gap: 30px;
-
+  
+  @include card;
+  
   @include onPhone {
     gap: 15px;
   }

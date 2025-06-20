@@ -1,9 +1,16 @@
-@use '../../_utils/vars' as *;
+@use "../../_utils/vars" as *;
 
-.repeatRemain {
+.wordProgress {
   display: flex;
-  flex-direction: row;
+  align-items: center;
   gap: 3px;
+  padding: 15px;
+
+  border-radius: 10px;
+
+  &:hover {
+    background-color: $cLightGray;
+  }
 }
 
 .level {
@@ -13,12 +20,25 @@
   border-radius: 4px;
 }
 
+.learnMore {
+  color: $cBlueGray;
+  font-weight: lighter;
+  font-size: 15px;
+
+  transition: opacity 0.3s ease;
+  opacity: 0;
+}
+
+.wordProgress:hover .learnMore {
+  opacity: 1;
+}
+
 .orange {
   background-color: $cLightOrange;
 }
 
 .lightBlue {
-background-color: $cLightBlue;
+  background-color: $cLightBlue;
 }
 
 .blue {
