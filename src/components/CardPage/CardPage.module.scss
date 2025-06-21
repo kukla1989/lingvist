@@ -1,8 +1,31 @@
-@use '../../_utils/mixins' as *;
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
 
 .cardPage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card {
   @include card;
+}
+
+.input {
+  height: 50px;
+  padding: 0 15px;
+
+  color: $cTeal;
+  font-size: 24px;
+  text-align: center;
+
+  border: none;
+  background-color: $cGrayLightInput;
+  outline: none;
+  border-radius: 10px;
+}
+
+.sentence {
+  color: $cTeal;
 }

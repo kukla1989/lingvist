@@ -1,15 +1,11 @@
 @use '_utils/vars' as *;
 
-body, input {
+body {
   font-family: "Noto Serif", "Times New Roman", serif;
   font-size: 22px;
 
   height: 100vh;
   margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   background-color: $cLightGray;
   font-size: 24px;
 }
