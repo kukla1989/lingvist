@@ -9,7 +9,7 @@
 }
 
 .card {
-  background-image: linear-gradient(to bottom, $cWhite 60%, $cLighterGray 40%);
+  background-image: linear-gradient(to bottom, $cWhite 60%, $cGray200 40%);
 
   @include card;
 }
