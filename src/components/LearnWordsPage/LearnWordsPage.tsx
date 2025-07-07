@@ -1,18 +1,18 @@
 import { useState } from "react";
 import WordProgress from "../WordProgress/WordProgress";
-import styles from "./CardPage.module.scss";
+import styles from "./LearnWordsPage.module.scss";
 const sentence1 = "Where are you? – I am at";
 const sentence2 = '.';
 const word = "home";
 const wordTranslate = 'дім';
 
-const CardPage = () => {
+const LearnWordsPage = () => {
   const [userWord, setUserWord] = useState("");
   const onSetWord = (e: React.ChangeEvent<HTMLInputElement>) =>
     setUserWord(e.target.value);
 
   return (
-    <div className={styles.cardPage}>
+    <div className={styles.learnWordsPage}>
       <div className={styles.card}>
         <WordProgress level={4} />
         <div className={styles.sentence}>
@@ -34,4 +34,4 @@ const CardPage = () => {
   );
 };
 
-export default CardPage;
+export default LearnWordsPage;
