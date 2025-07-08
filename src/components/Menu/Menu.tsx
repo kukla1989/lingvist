@@ -6,6 +6,7 @@ import LogoSVG from "../../assets/icons/LogoSVG";
 import { variables as vars } from "../../_utils/variables";
 import LingvistSVG from "../../assets/icons/LingvistSVG";
 import { Link } from "react-router-dom";
+import WordsListSVG from "../../assets/icons/WordsListSVG";
 
 const Menu = () => {
   return (
@@ -20,7 +21,12 @@ const Menu = () => {
       <nav className={styles.nav}>
         <ul className={styles.navlist}>
           <li className={styles.navitem}>
-            <NavLink to="/" className={({ isActive }) => `${styles.navlink} ${isActive ? styles.active : ''}`}>
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                `${styles.navlink} ${isActive ? styles.active : ""}`
+              }
+            >
               <div className={styles.iconWrapper}>
                 <CardsSVG iconColor={vars.cBlueGray} />
               </div>
@@ -29,9 +35,26 @@ const Menu = () => {
           </li>
 
           <li className={styles.navitem}>
-          <NavLink to="/add-words" className={({ isActive }) => `${styles.navlink} ${isActive ? styles.active : ''}`}>
+            <NavLink
+              to="/add-words"
+              className={({ isActive }) =>
+                `${styles.navlink} ${isActive ? styles.active : ""}`
+              }
+            >
               <AddSVG iconColor={vars.cBlueGray} />
               add words
+            </NavLink>
+          </li>
+
+          <li className={styles.navitem}>
+            <NavLink
+              to="/words-list"
+              className={({ isActive }) =>
+                `${styles.navlink} ${isActive ? styles.active : ""}`
+              }
+            >
+              <WordsListSVG />
+              words list
             </NavLink>
           </li>
         </ul>
