@@ -1,12 +1,14 @@
 import { Outlet } from "react-router-dom";
-import style from "./App.module.scss";
+import styles from "./App.module.scss";
 import Menu from "./components/Menu/Menu";
 
 export const App: React.FC = () => {
   return (
-    <div className={style.app}>
+    <div className={styles.app}>
       <Menu />
-      <Outlet />
+      <div className={styles.mainContent}>
+        <Outlet />
+      </div>
     </div>
   );
 };

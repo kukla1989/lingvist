@@ -4,7 +4,6 @@
 .learnWordsPage {
   height: 100vh;
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
@@ -12,6 +11,10 @@
   background-image: linear-gradient(to bottom, $cWhite 60%, $cGray200 40%);
 
   @include card;
+}
+
+.learnCard {
+  max-height: 250px;
 }
 
 .input {

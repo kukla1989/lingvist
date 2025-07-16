@@ -1,2 +1,35 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
 .wordsListPage {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+
+  @include onPhone {
+    padding-top: 20px;
+  }
+}
+
+.list {
+  width: 70%;
+  padding: 0 20px;
+  padding-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+
+  background-color: $cWhite;
+  border-radius: 20px;
+
+  @include onPhone {
+    width: 95%;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 8px;
+  }
+}
+
+.word {
+  font-size: 26px;
 }

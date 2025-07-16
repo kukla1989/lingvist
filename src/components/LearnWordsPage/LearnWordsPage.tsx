@@ -13,7 +13,7 @@ const LearnWordsPage = () => {
 
   return (
     <div className={styles.learnWordsPage}>
-      <div className={styles.card}>
+      <div className={`${styles.card} ${styles.learnCard}`}>
         <WordProgress level={4} />
         <div className={styles.sentence}>
           <span className={styles.senteceBegin}>{sentence1}</span>

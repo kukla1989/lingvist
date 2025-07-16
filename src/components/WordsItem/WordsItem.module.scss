@@ -1,0 +1,56 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.wordsItem {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+
+  color: $cTeal;
+
+  &:last-child > .bottomLine {
+    display: none;
+  }
+}
+
+.word {
+  font-size: 26px;
+}
+
+.translation {
+  font-size: 16px;
+  margin-bottom: 27px;
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.bottomElement {
+  color: $cBlueGray;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.verticalBar {
+  font-size: 10px;
+}
+
+.bottomLine {
+  background-color: $cGray100;
+  position: absolute;
+  bottom: 0;
+  left: -20px;
+  right: -20px;
+
+  height: 2px;
+
+  @include onPhone {
+    left: -10px;
+    right: -10px;
+  }
+}
