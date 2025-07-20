@@ -1,0 +1,78 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.desktopHeader {
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 80px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+
+  font-family: "Formular", sans-serif;
+  font-size: 18px;
+  background-color: $cGray100;
+
+  @include onPhone {
+    padding: 0 20px;
+  }
+}
+
+.menu {
+  display: flex;
+  gap: 16px;
+}
+
+.menuItem {
+  font-family: "Formular", sans-serif;
+  color: $cDark;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+
+.signUp {
+  padding: 8px 16px;
+  width: 103px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-color: $cDark;
+  color: $cWhite;
+
+  &:hover {
+    background-color: $cLightDark;
+  }
+}
+
+.logIn {
+  padding: 8px 16px;
+}
+
+.desktopHeader {
+  @include onPhone {
+    display: none;
+  }
+}
+
+.mobileHeader {
+  display: none;
+
+  @include onPhone {
+    display: block;
+  }
+}

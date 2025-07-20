@@ -1,0 +1,8 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.welcomePage {
+  position: relative;
+
+  background-color: $cWhite;
+}
