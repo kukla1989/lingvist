@@ -1,0 +1,18 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.mobileWelcomeHeader {
+  height: 80px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+
+  background-color: $cWhite;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}

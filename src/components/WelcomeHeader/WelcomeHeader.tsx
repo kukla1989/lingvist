@@ -1,4 +1,5 @@
 import WelcomeLogoSVG from "../../assets/icons/WelcomeLogoSVG";
+import MobileWelcomeHeader from "../MobileWelcomeHeader/MobileWelcomeHeader";
 import styles from "./WelcomeHeader.module.scss";
 
 const WelcomeHeader = () => {
@@ -16,6 +17,10 @@ const WelcomeHeader = () => {
           <div className={styles.signUp}>sign up</div>
           <div className={styles.logIn}>log in</div>
         </div>
+      </div>
+
+      <div className={styles.mobileHeader}>
+        <MobileWelcomeHeader />
       </div>
     </div>
   );

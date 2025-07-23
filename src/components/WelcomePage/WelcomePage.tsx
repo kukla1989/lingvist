@@ -1,4 +1,4 @@
-import WelcomeHeader from "./WelcomeHeader";
+import WelcomeHeader from "../WelcomeHeader/WelcomeHeader";
 import styles from "./WelcomePage.module.scss";
 
 const WelcomePage = () => {
