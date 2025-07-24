@@ -4,6 +4,7 @@
 .mobileWelcomeHeader {
   height: 80px;
   padding: 0 16px;
+  position: relative;
   display: flex;
   align-items: center;
 
@@ -11,8 +12,13 @@
 }
 
 .logo {
+  @include zIndexTop;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
+}
+
+.burgerMenu {
+  @include zIndexTop;
 }

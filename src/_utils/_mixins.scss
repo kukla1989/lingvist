@@ -1,4 +1,4 @@
-@use './vars' as *;
+@use "./vars" as *;
 
 @mixin onPhone {
   @media (max-width: 619px) {
@@ -32,4 +32,9 @@
   @include onDesktop {
     width: 700px;
   }
+}
+
+@mixin zIndexTop {
+  position: relative;
+  z-index: 10;
 }

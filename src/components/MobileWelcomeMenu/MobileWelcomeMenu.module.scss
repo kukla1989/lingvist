@@ -1,0 +1,76 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.mobileWelcomeMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
+  background-color: red;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: $cGray400;
+  z-index: 1;
+}
+
+.menu {
+  margin: 100px 0 0 30px;
+  list-style: none;
+}
+
+.menuItem {
+  @include zIndexTop;
+  margin-bottom: 30px;
+
+  color: $cDark;
+  font-size: 23px;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+@mixin authItem {
+  @include zIndexTop;
+
+  width: 70%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  box-sizing: border-box;
+  border-radius: 16px;
+}
+
+.signUp {
+  @include authItem;
+
+  background-color: $cDark;
+  color: $cWhite;
+
+  &:hover {
+    background-color: $cLightDark;
+  }
+}
+
+.logIn {
+  @include authItem;
+  background-color: $cWhite;
+}
