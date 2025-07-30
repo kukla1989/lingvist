@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import BurgerMenuSVG from "../../assets/icons/BurgerMenuSVG";
 import WelcomeLogoSVG from "../../assets/icons/WelcomeLogoSVG";
 import styles from "./MobileWelcomeHeader.module.scss";
@@ -7,14 +7,15 @@ import CloseButtonSVG from "../../assets/icons/CloseButtonSVG";
 
 const MobileWelcomeHeader = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const toggleMenu = useCallback(() => setIsOpen(!isOpen), []);
+  const toggleMenu = () => setIsOpen(!isOpen);
+  const closeMenu = () => setIsOpen(false);
 
   return (
     <div className={styles.mobileWelcomeHeader}>
       <div className={styles.burgerMenu} onClick={toggleMenu} aria-label="Toggle menu">
         {isOpen ? <CloseButtonSVG /> : <BurgerMenuSVG />}
       </div>
-      {isOpen && <MobileWelcomeMenu />}
+      {isOpen && <MobileWelcomeMenu closeMenu={closeMenu} />}
       <div className={styles.logo}>
         <WelcomeLogoSVG />
       </div>

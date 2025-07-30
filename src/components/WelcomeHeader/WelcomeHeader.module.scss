@@ -2,10 +2,11 @@
 @use "../../_utils/vars" as *;
 
 .desktopHeader {
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
-  height: 80px;
+  right: 0;
+  height: $headerHeight;
 
   display: flex;
   align-items: center;
@@ -14,7 +15,7 @@
 
   font-family: "Formular", sans-serif;
   font-size: 18px;
-  background-color: $cGray100;
+  background-color: $cWhite;
 
   @include onPhone {
     padding: 0 20px;
@@ -39,7 +40,7 @@
   text-transform: uppercase;
 }
 
-.signUp {
+@mixin authItem {
   padding: 8px 16px;
   width: 103px;
   height: 44px;
@@ -51,16 +52,24 @@
   font-weight: 500;
   box-sizing: border-box;
   border-radius: 16px;
-  background-color: $cDark;
   color: $cWhite;
+  text-decoration: none;
 
   &:hover {
     background-color: $cLightDark;
   }
 }
 
+.signUp {
+  @include authItem;
+  background-color: $cDark;
+}
+
 .logIn {
-  padding: 8px 16px;
+  @include authItem;
+
+  color: $cDark;
+  background-color: $cGray300;
 }
 
 .desktopHeader {

@@ -57,6 +57,7 @@
   font-weight: 500;
   box-sizing: border-box;
   border-radius: 16px;
+  text-decoration: none;
 }
 
 .signUp {
@@ -72,5 +73,7 @@
 
 .logIn {
   @include authItem;
+
+  color: $cDark;
   background-color: $cWhite;
 }

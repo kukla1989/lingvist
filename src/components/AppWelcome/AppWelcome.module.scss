@@ -1,0 +1,8 @@
+
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+  
+  .appWelcome {
+  position: relative;
+  padding-top: $headerHeight;
+}

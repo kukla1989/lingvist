@@ -1,4 +1,4 @@
-@use '_utils/vars' as *;
+@use "_utils/vars" as *;
 
 body {
   font-family: "Noto Serif", "Times New Roman", serif;
@@ -6,7 +6,7 @@ body {
 
   min-height: 100vh;
   margin: 0;
-  background-color: $cGray100;
+  background-color: $cGray300;
   font-size: 24px;
 }
 

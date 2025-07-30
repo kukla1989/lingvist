@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import WelcomeLogoSVG from "../../assets/icons/WelcomeLogoSVG";
 import MobileWelcomeHeader from "../MobileWelcomeHeader/MobileWelcomeHeader";
 import styles from "./WelcomeHeader.module.scss";
@@ -14,8 +15,13 @@ const WelcomeHeader = () => {
         </div>
 
         <div className={styles.auth}>
-          <div className={styles.signUp}>sign up</div>
-          <div className={styles.logIn}>log in</div>
+          <Link to="/welcome/signup" className={styles.signUp}>
+            sign up
+          </Link>
+
+          <Link to="/welcome/login" className={styles.logIn}>
+            log in
+          </Link>
         </div>
       </div>
 

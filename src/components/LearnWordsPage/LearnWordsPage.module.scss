@@ -8,7 +8,7 @@
 }
 
 .card {
-  background-image: linear-gradient(to bottom, $cWhite 60%, $cGray200 40%);
+  background-image: linear-gradient(to bottom, $cWhite 60%, $cGray100 40%);
 
   @include card;
 }
@@ -36,5 +36,5 @@
 }
 
 .wordTranslate {
-  margin: 70px 0 30px 30px
+  margin: 70px 0 30px 30px;
 }

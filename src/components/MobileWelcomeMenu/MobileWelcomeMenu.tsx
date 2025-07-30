@@ -1,7 +1,12 @@
 import React from "react";
 import styles from "./MobileWelcomeMenu.module.scss";
+import { Link } from "react-router-dom";
 
-const MobileWelcomeMenu = React.memo(() => {
+interface MobileWelcomeMenuProps {
+  closeMenu: () => void;
+}
+
+const MobileWelcomeMenu: React.FC<MobileWelcomeMenuProps> = React.memo(({ closeMenu }) => {
   return (
     <div className={styles.mobileWelcomeMenu}>
       <div className={styles.overlay} />
@@ -12,8 +17,12 @@ const MobileWelcomeMenu = React.memo(() => {
       </ul>
 
       <div className={styles.auth}>
-        <div className={styles.signUp}>sign up</div>
-        <div className={styles.logIn}>log in</div>
+        <Link to="/welcome/signup" className={styles.signUp} onClick={closeMenu}>
+          sign up
+        </Link>
+        <Link to="/welcome/login" className={styles.logIn} onClick={closeMenu}>
+          log in
+        </Link>
       </div>
     </div>
   );
