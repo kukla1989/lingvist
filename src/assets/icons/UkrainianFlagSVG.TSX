@@ -1,7 +1,7 @@
 import * as React from "react";
 
-const SvgIcon: React.FC<React.SVGProps<SVGElement>> = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="43" height="26" fill="none" viewBox="0 0 43 26">
+const UkrainianFlagSVG: React.FC<React.SVGProps<SVGElement>> = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 43 26" height="70">
     <path
       fill="#005BBB"
       fillRule="evenodd"
@@ -24,4 +24,4 @@ const SvgIcon: React.FC<React.SVGProps<SVGElement>> = () => (
   </svg>
 );
 
-export default SvgIcon;
+export default UkrainianFlagSVG;

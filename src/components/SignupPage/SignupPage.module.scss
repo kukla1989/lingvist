@@ -1,5 +1,56 @@
-.signupPage {
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
 
+.signupPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  height: 100vh;
+
+  color: $cDark;
+  background-color: $cWhite;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font:
+    400 26px "Noto Sans",
+    "Helvetica Neue",
+    Arial,
+    Helvetica,
+    Geneva,
+    sans-serif;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 41px;
+  width: 350px;
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 400px;
+  gap: 20px;
+}
+.signupGoogle {
+  height: 40px;
+  width: 360px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  background-color: $cGray300;
+  border-radius: 10px;
 }
 
 .underline {
