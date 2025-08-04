@@ -1,3 +1,39 @@
-.loginPage {
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
 
+.loginPage {
+  background-color: $cWhite;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 15%;
+  color: $cDark;
+}
+
+.register {
+  @include boxButton;
+  justify-content: center;
+  border: 1px solid $cDark;
+  font-family: "Noto Sans", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  transition:
+    background-color $transition ease,
+    color $transition ease;
+
+  &:hover {
+    background-color: $cDark;
+    color: $cGray300;
+  }
+}
+
+.loginBtn {
+  justify-content: space-between;
+
+  & > :nth-child(2) {
+      transform: translateX(-30%);
+  }
 }

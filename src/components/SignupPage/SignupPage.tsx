@@ -1,8 +1,8 @@
-import GoogleSVG from "../../assets/icons/GoogleSVG";
 import UkrainianFlagSVG from "../../assets/icons/UkrainianFlagSVG";
 import ArrowSVG from "../../assets/icons/ArrowSVG";
 import BritainFlagSVG from "../../assets/icons/BritainFlagSVG";
 import styles from "./SignupPage.module.scss";
+import GoogleButton from "../GoogleButton/GoogleButton";
 
 const SignupPage = () => {
   return (
@@ -16,14 +16,11 @@ const SignupPage = () => {
       </div>
 
       <div className={styles.auth}>
-        <div className={styles.signupGoogle}>
-          <GoogleSVG />
-          Зареєструватися через Google
-        </div>
+        <GoogleButton name="Зареєструватися через Google" />
 
         <div className={styles.agreement}>
           Реєструючись, ви погоджуєтеся з
-          <span className={styles.underline}>Умовами надання послуг</span> {" "}i{" "}
+          <span className={styles.underline}>Умовами надання послуг</span> i{" "}
           <span className={styles.underline}>Політикою Конфіденційності Lingvist.</span>
         </div>
       </div>

@@ -38,3 +38,14 @@
   position: relative;
   z-index: 10;
 }
+
+@mixin boxButton {
+  height: 40px;
+  width: 360px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  border-radius: 10px;
+}

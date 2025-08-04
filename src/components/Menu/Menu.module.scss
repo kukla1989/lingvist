@@ -8,7 +8,7 @@ $menuWidth: 35px;
   height: 100vh;
   padding: 20px;
 
-  transition: width $transition-duration ease;
+  transition: width $transition ease;
   background-color: $cWhite;
   overflow: hidden;
 
@@ -51,7 +51,7 @@ $menuWidth: 35px;
 .navitem {
   text-decoration: none;
   border-radius: 10px;
-  transition: background-color $transition-duration ease;
+  transition: background-color $transition ease;
 
   &:hover {
     background-color: $cGray300;
