@@ -13,6 +13,11 @@
   color: $cDark;
 }
 
+a {
+  text-decoration: none;
+  color: $cDark;
+}
+
 .register {
   @include boxButton;
   justify-content: center;

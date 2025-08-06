@@ -7,6 +7,7 @@ import { variables as vars } from "../../_utils/variables";
 import LingvistSVG from "../../assets/icons/LingvistSVG";
 import { Link } from "react-router-dom";
 import WordsListSVG from "../../assets/icons/WordsListSVG";
+import LogOutSVG from "../../assets/icons/LogOutSVG.tsx";
 
 const Menu = () => {
   return (
@@ -23,9 +24,7 @@ const Menu = () => {
           <li className={styles.navitem}>
             <NavLink
               to="/"
-              className={({ isActive }) =>
-                `${styles.navlink} ${isActive ? styles.active : ""}`
-              }
+              className={({ isActive }) => `${styles.navlink} ${isActive ? styles.active : ""}`}
             >
               <div className={styles.iconWrapper}>
                 <CardsSVG iconColor={vars.cBlueGray} />
@@ -37,9 +36,7 @@ const Menu = () => {
           <li className={styles.navitem}>
             <NavLink
               to="/add-words"
-              className={({ isActive }) =>
-                `${styles.navlink} ${isActive ? styles.active : ""}`
-              }
+              className={({ isActive }) => `${styles.navlink} ${isActive ? styles.active : ""}`}
             >
               <AddSVG iconColor={vars.cBlueGray} />
               add words
@@ -49,12 +46,21 @@ const Menu = () => {
           <li className={styles.navitem}>
             <NavLink
               to="/words-list"
-              className={({ isActive }) =>
-                `${styles.navlink} ${isActive ? styles.active : ""}`
-              }
+              className={({ isActive }) => `${styles.navlink} ${isActive ? styles.active : ""}`}
             >
-              <WordsListSVG />
+              <div className={styles.iconWrapper}>
+                <WordsListSVG />
+              </div>
               words list
+            </NavLink>
+          </li>
+
+          <li className={styles.navitem}>
+            <NavLink className={styles.navlink} to="/welcome">
+              <div className={styles.iconWrapper}>
+                <LogOutSVG iconColor={vars.cBlueGray} />
+              </div>
+              log out
             </NavLink>
           </li>
         </ul>
