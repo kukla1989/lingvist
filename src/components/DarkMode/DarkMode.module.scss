@@ -1,0 +1,76 @@
+$lightbg: #fff;
+$lightt: #D43370;
+
+$toggleHeight: 16em;
+$toggleWidth: 30em;
+$toggleBtnRadius: 10em;
+
+$bgColor-night: #423966;
+$toggleBtn-bgColor-night: $bgColor-night;
+
+$mooncolor: #D9FBFF;
+$bgColor-day: #9ee3fb;
+$toggleBtn-bgColor-day: $bgColor-day;
+
+.light {
+  background: $lightbg;
+  color: $lightt;
+}
+
+.themeToggle {
+  font-size: 1.7px; // change size of DarkMode
+  margin: 10em auto 0 auto;
+  position: relative;
+  height: $toggleHeight;
+  width: $toggleWidth;
+
+  border-radius: $toggleHeight;
+  transition: all 500ms ease-in-out;
+  background: $bgColor-night;
+}
+
+.day {
+  background: #FFBF71;
+}
+
+.moon {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  transition: all 400ms ease-in-out;
+
+  top: 3em;
+  left: 3em;
+  transform: rotate(-75deg);
+  width: $toggleBtnRadius;
+  height: $toggleBtnRadius;
+  background: $bgColor-night;
+  $darkGray: rgba(255, 255, 255, 0.1);
+  box-shadow: 3em 2.5em 0 0 $mooncolor inset,
+    $darkGray 0em -7em 0 -4.5em,
+    $darkGray 3em 7em 0 -4.5em,
+    $darkGray 2em 13em 0 -4em,
+    $darkGray 6em 2em 0 -4.1em,
+    $darkGray 8em 8em 0 -4.5em,
+    $darkGray 6em 13em 0 -4.5em,
+    $darkGray -4em 7em 0 -4.5em,
+    $darkGray -1em 10em 0 -4.5em;
+}
+
+.sun {
+  top: 4.5em;
+  left: 18em;
+  transform: rotate(0deg);
+  width: 7em;
+  height: 7em;
+  background: #fff;
+  box-shadow: 3em 3em 0 5em #fff inset,
+    0 -5em 0 -2.7em #fff,
+    3.5em -3.5em 0 -3em #fff,
+    5em 0 0 -2.7em #fff,
+    3.5em 3.5em 0 -3em #fff,
+    0 5em 0 -2.7em #fff,
+    -3.5em 3.5em 0 -3em #fff,
+    -5em 0 0 -2.7em #fff,
+    -3.5em -3.5em 0 -3em #fff;
+}

@@ -23,6 +23,10 @@ $menuWidth: 35px;
       width: $menuWidth;
     }
   }
+
+  &.dark {
+    background-color: $cDarkBG;
+  }
 }
 
 .logo {
@@ -82,4 +86,5 @@ $menuItemWidth: 40px;
 
 .active {
   background-color: $cViolet;
+  //background-color: var(--cViolet)
 }

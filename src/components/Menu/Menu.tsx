@@ -8,10 +8,14 @@ import LingvistSVG from "../../assets/icons/LingvistSVG";
 import { Link } from "react-router-dom";
 import WordsListSVG from "../../assets/icons/WordsListSVG";
 import LogOutSVG from "../../assets/icons/LogOutSVG.tsx";
+import DarkMode from "../DarkMode/DarkMode.tsx";
+import { useIsLight } from "../../hooks/useIsLight.ts";
 
 const Menu = () => {
+  const isLight = useIsLight();
+
   return (
-    <header className={styles.menu}>
+    <header className={`${styles.menu} ${isLight ? "" : styles.dark}`}>
       <Link to="/" className={styles.logo}>
         <div className={styles.iconWrapper}>
           <LogoSVG />
@@ -65,6 +69,8 @@ const Menu = () => {
           </li>
         </ul>
       </nav>
+
+      <DarkMode />
     </header>
   );
 };
