@@ -1,13 +1,16 @@
+import { useDispatch } from "react-redux";
 import styles from "./DarkMode.module.scss";
-import { useState } from "react";
+import { AppDispatch, toggle } from "../../store.ts";
+import { useIsLight } from "../../hooks/useIsLight";
 
 function DarkMode() {
-  const [isLight, setIsLight] = useState(false);
+  const isLight = useIsLight();
+  const dispatch = useDispatch<AppDispatch>();
 
   return (
     <div
       className={`${styles.themeToggle} ${isLight ? styles.day : ""}`}
-      onClick={() => setIsLight(!isLight)}
+      onClick={() => dispatch(toggle())}
     >
       <div className={`${styles.moon} ${isLight ? styles.sun : ""}`} />
     </div>
