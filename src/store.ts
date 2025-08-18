@@ -5,12 +5,14 @@ type DarkMode = {
   isLight: boolean;
 };
 
+const initialState: boolean = localStorage.getItem("darkMode") === "dark";
 const darkModeSlice = {
   name: "darkMode",
-  initialState: { isLight: false },
+  initialState: { isLight: initialState },
   reducers: {
     toggle: (state: DarkMode) => {
       state.isLight = !state.isLight;
+      localStorage.setItem("darkMode", state.isLight ? "dark" : "light");
     },
   },
 };
