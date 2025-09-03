@@ -9,7 +9,7 @@ $menuWidth: 35px;
   padding: 20px;
 
   transition: width $transition ease;
-  background-color: $cWhite;
+  background-color: var(--cMenuBG);
   overflow: hidden;
 
   &:hover {
@@ -22,10 +22,6 @@ $menuWidth: 35px;
     &:hover {
       width: $menuWidth;
     }
-  }
-
-  &.dark {
-    background-color: $cDarkBG;
   }
 }
 
@@ -58,7 +54,8 @@ $menuWidth: 35px;
   transition: background-color $transition ease;
 
   &:hover {
-    background-color: $cGray300;
+    background-color: rgba(189, 185, 185, 0.1);
+    box-shadow: 0 0 8px #fff;
   }
 }
 
@@ -80,11 +77,10 @@ $menuItemWidth: 40px;
   gap: 16px;
 
   text-decoration: none;
-  color: $cBlueGray;
+  color: var(--cNavText);
   border-radius: 10px;
 }
 
 .active {
-  background-color: $cViolet;
-  //background-color: var(--cViolet)
+  background-color: var(--cActive)
 }

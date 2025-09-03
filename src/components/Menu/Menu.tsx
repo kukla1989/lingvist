@@ -9,13 +9,10 @@ import { Link } from "react-router-dom";
 import WordsListSVG from "../../assets/icons/WordsListSVG";
 import LogOutSVG from "../../assets/icons/LogOutSVG.tsx";
 import DarkMode from "../DarkMode/DarkMode.tsx";
-import { useIsLight } from "../../hooks/useIsLight.ts";
 
 const Menu = () => {
-  const isLight = useIsLight();
-
   return (
-    <header className={`${styles.menu} ${isLight ? "" : styles.dark}`}>
+    <header className={styles.menu}>
       <Link to="/" className={styles.logo}>
         <div className={styles.iconWrapper}>
           <LogoSVG />

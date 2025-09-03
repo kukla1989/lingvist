@@ -6,8 +6,6 @@ $cGray200: #f3f4f7;
 $cGray300: #eff0f4; //background
 $cGray400: #e5e5e5;
 
-$cDarkBG: #232526;
-
 $cGrayLightInput: #f5f5f5;
 $cTeal: #008080;
 $cBlueGray: #626c91;
@@ -25,6 +23,14 @@ $cDark: #2c3143;
 $cLightDark: #535767;
 $headerHeight: 80px;
 
-root {
-  --cViolet: #e2b4ff;
+:root {
+  --cActive: #e2b4ff;
+  --cMenuBG: #{$cWhite};
+  --cNavText: #{$cBlueGray};
+}
+
+.dark {
+  --cMenuBG: #232526;
+  --cNavText: #cfcac1;
+  --cActive: rgba(189, 185, 185, 0.3);
 }
