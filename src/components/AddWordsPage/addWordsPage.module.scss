@@ -10,8 +10,8 @@
   justify-content: center;
   flex-direction: column;
   gap: 30px;
-  background-color: $cWhite;
-
+  background-color: var(--mainBG);
+  color: var(--blackGray);
   @include card;
 
   @include onPhone {
@@ -28,7 +28,11 @@
   font-size: 24px;
   color: $cTeal;
   border: none;
-  background-color: $cGrayLightInput;
+  background-color: var(--inputBG);
   outline: none;
   border-radius: 10px;
+}
+
+.input--dark {
+  border: 1px solid $cGrayWarm;
 }

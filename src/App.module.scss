@@ -1,18 +1,15 @@
 @use "_utils/vars" as *;
 
-body {
-  font-family: "Noto Serif", "Times New Roman", serif;
-  font-size: 22px;
-
+.app {
+  display: flex;
   min-height: 100vh;
   margin: 0;
-  background-color: $cGray300;
+
+  font-family: "Noto Serif", "Times New Roman", serif;
+  background-color: var(--cBackground);
   font-size: 24px;
 }
 
-.app {
-  display: flex;
-}
 
 .mainContent {
   flex: 1;

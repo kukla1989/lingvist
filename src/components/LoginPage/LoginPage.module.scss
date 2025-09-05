@@ -2,7 +2,7 @@
 @use "../../_utils/vars" as *;
 
 .loginPage {
-  background-color: $cWhite;
+  background-color: var(--cBackground);
   height: 100vh;
   display: flex;
   align-items: center;
@@ -33,6 +33,11 @@ a {
     background-color: $cDark;
     color: $cGray300;
   }
+}
+
+.register--dark {
+   border: 1px solid $cGray300;
+  color: $cGrayWarm;
 }
 
 .loginBtn {

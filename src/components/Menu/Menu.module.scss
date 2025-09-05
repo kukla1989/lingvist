@@ -9,7 +9,7 @@ $menuWidth: 35px;
   padding: 20px;
 
   transition: width $transition ease;
-  background-color: var(--cMenuBG);
+  background-color: var(--mainBG);
   overflow: hidden;
 
   &:hover {
@@ -77,10 +77,16 @@ $menuItemWidth: 40px;
   gap: 16px;
 
   text-decoration: none;
-  color: var(--cNavText);
+  color: var(--mainText);
   border-radius: 10px;
 }
 
 .active {
   background-color: var(--cActive)
+}
+
+.darkMode {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
 }

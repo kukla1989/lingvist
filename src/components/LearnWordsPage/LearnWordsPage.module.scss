@@ -13,6 +13,10 @@
   @include card;
 }
 
+.card--dark {
+  background-image: linear-gradient(to bottom,  var(--mainBG) 60%, #101212 40%);
+}
+
 .learnCard {
   max-height: 250px;
 }
@@ -26,7 +30,7 @@
   text-align: center;
 
   border: none;
-  background-color: $cGrayLightInput;
+  background-color: var(--inputBG);
   outline: none;
   border-radius: 10px;
 }
@@ -37,4 +41,7 @@
 
 .wordTranslate {
   margin: 70px 0 30px 30px;
+}
+.wordTranslate--dark {
+  color: $cGrayWarm;
 }

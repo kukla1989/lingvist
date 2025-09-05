@@ -5,7 +5,7 @@
   @include boxButton;
 
   justify-content: space-around;
-  background-color: $cGray300;
+  background-color: var(--cBackground);
 
   transition: background-color $transition ease;
 

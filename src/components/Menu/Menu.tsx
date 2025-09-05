@@ -67,7 +67,9 @@ const Menu = () => {
         </ul>
       </nav>
 
-      <DarkMode />
+      <div className={styles.darkMode}>
+        <DarkMode size={2.3} />
+      </div>
     </header>
   );
 };

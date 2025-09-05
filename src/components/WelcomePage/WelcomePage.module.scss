@@ -2,5 +2,6 @@
 @use "../../_utils/vars" as *;
 
 .welcomePage {
-  background-color: $cWhite;
+  background-color: var(--cBackground);
+  min-height: 100vh;
 }

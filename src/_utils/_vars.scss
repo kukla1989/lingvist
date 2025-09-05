@@ -24,13 +24,20 @@ $cLightDark: #535767;
 $headerHeight: 80px;
 
 :root {
+  --cBackground: #{$cGray300};
   --cActive: #e2b4ff;
-  --cMenuBG: #{$cWhite};
-  --cNavText: #{$cBlueGray};
+  --mainBG: #{$cWhite};
+  --mainText: #{$cBlueGray};
+  --blackGray: #{$cDark};
+  --inputBG: #{$cGrayLightInput};
 }
 
+$cGrayWarm: #cfcac1;
 .dark {
-  --cMenuBG: #232526;
-  --cNavText: #cfcac1;
+  --cBackground: #2f3336;
+  --mainBG: #232526;
+  --mainText: #{$cGrayWarm};
   --cActive: rgba(189, 185, 185, 0.3);
+  --blackGray: #{$cGrayWarm};
+  --inputBG: #202223;
 }

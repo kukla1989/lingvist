@@ -6,7 +6,7 @@ interface LogOutSVGProps {
 
 const LogOutSVG: React.FC<LogOutSVGProps> = ({ iconColor = "#0F0F0F" }) => {
   const isDark = useIsDark();
-  const color = isDark ? "var(--cNavText)" : iconColor;
+  const color = isDark ? "var(--mainText)" : iconColor;
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="none" viewBox="0 0 24 24">

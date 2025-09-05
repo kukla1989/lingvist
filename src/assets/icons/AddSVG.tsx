@@ -6,7 +6,7 @@ interface AddSVGProps {
 
 const AddSVG: React.FC<AddSVGProps> = ({ iconColor }) => {
   const isDark = useIsDark();
-  const color = isDark ? "var(--cNavText)" : iconColor;
+  const color = isDark ? "var(--mainText)" : iconColor;
 
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="38" height="27" fill="none" viewBox="0 0 24 24">
