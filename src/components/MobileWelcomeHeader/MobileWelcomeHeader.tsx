@@ -17,7 +17,7 @@ const MobileWelcomeHeader = () => {
       </div>
       {isOpen && <MobileWelcomeMenu closeMenu={closeMenu} />}
       <div className={styles.logo}>
-        <WelcomeLogoSVG />
+        <WelcomeLogoSVG iconColor="#2C3143"/>
       </div>
     </div>
   );

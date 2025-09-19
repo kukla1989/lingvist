@@ -23,7 +23,7 @@ const LearnWordsPage = () => {
         <div className={styles.sentence}>
           <span className={styles.senteceBegin}>{sentence1}</span>
           <input
-            className={styles.input}
+            className={`${styles.input} ${isDark && styles['input--dark']}`}
             value={userWord}
             onChange={onSetWord}
             style={{width: 8 * word.length + 30 + "px"}}

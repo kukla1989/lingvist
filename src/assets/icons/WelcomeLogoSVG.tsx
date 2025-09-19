@@ -1,8 +1,13 @@
 import { useIsDark } from "../../hooks/useIsDark.ts";
-
-const WelcomeLogoSVG: React.FC<React.SVGProps<SVGElement>> = () => {
+interface WelcomeLogoSVGProps {
+  iconColor?: string;
+}
+const WelcomeLogoSVG: React.FC<WelcomeLogoSVGProps> = ({ iconColor }) => {
   const isDark = useIsDark();
-  const color = isDark ? "var(--mainText)" : "#2c3143";
+  let color = isDark ? "var(--mainText)" : "#2c3143";
+  if (iconColor) {
+    color = iconColor;
+  }
 
   return (
   <svg xmlns="http://www.w3.org/2000/svg" width="153" height="26" fill="none">

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import WelcomeLogoSVG from "../../assets/icons/WelcomeLogoSVG";
 import MobileWelcomeHeader from "../MobileWelcomeHeader/MobileWelcomeHeader";
 import styles from "./WelcomeHeader.module.scss";
@@ -10,7 +10,9 @@ const WelcomeHeader = () => {
   return (
     <div className={styles.welcomeHeader}>
       <div className={styles.desktopHeader}>
-        <WelcomeLogoSVG />
+        <NavLink to='/'>
+          <WelcomeLogoSVG />
+        </NavLink>
 
         <div className={styles.menu}>
           <div className={styles.menuItem}>Business</div>
@@ -18,12 +20,13 @@ const WelcomeHeader = () => {
         </div>
 
         <div className={styles.auth}>
-          <DarkMode size={2.5}/>
+          <DarkMode size={2.5} />
           <Link to="/welcome/signup" className={styles.signUp}>
             sign up
           </Link>
 
-          <Link to="/welcome/login" className={`${styles.logIn} ${isDark && styles['logIn--dark']}`}>
+          <Link to="/welcome/login"
+                className={`${styles.logIn} ${isDark && styles['logIn--dark']}`}>
             log in
           </Link>
         </div>
