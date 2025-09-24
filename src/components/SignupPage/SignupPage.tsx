@@ -7,25 +7,48 @@ import { useState } from "react";
 import UserSVG from "../../assets/icons/UserSVG.tsx";
 import MailSVG from "../../assets/icons/MailSVG.tsx";
 import PasswordSVG from "../../assets/icons/PasswordSVG.tsx";
+import { useNavigate } from 'react-router-dom';
+const api = import.meta.env.VITE_API_URL
 
 interface FormData {
-  username: string;
+  name: string;
   email: string;
   password: string;
 }
 
 const SignupPage = () => {
   const [formData, setFormData] = useState<FormData>({
-    username: "",
+    name: "",
     email: "",
     password: "",
   })
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setError("");
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    try {
+      const res = await fetch(api + '/auth/register', {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Something went wrong, pls try again");
+      } else {
+        navigate("/");
+      }
+    } catch (err) {
+      console.error(err);
+    }
   }
+
   const isDark = useIsDark();
 
   return (
@@ -38,15 +61,18 @@ const SignupPage = () => {
         <BritainFlagSVG />
       </div>
 
+      <div className={styles.error}>
+        {error}
+      </div>
       <form onSubmit={handleSubmit} className={styles.auth}>
         <div className={`${styles['input-wrapper']}`}>
           <UserSVG />
           <input
             type="text"
-            name="username"
+            name="name"
             placeholder="username"
             className={`${styles.input} ${isDark && styles['input--dark']}`}
-            value={formData.username}
+            value={formData.name}
             onChange={handleChange}
             autoComplete="username"
             required
