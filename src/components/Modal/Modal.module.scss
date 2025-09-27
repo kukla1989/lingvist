@@ -1,0 +1,47 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.modal {
+  position: fixed;
+  top: 27%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 200px;
+  padding: 20px;
+  z-index: 10;
+
+  background-color: $cBlueGray;
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &--black {
+    background-color: rgb(255, 255, 255, 0.05);
+  }
+
+  .ok {
+    width: 30%;
+  }
+
+  @include onPhone {
+    width: 90%;
+    height: 200px;
+    padding: 4px;
+
+    text-align: center;
+  }
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+}

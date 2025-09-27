@@ -42,7 +42,7 @@ const SignupPage = () => {
       if (!res.ok) {
         setError(data.error || "Something went wrong, pls try again");
       } else {
-        navigate("/");
+        navigate("/", {state: { showModal: true, user: formData.name }});
       }
     } catch (err) {
       console.error(err);
@@ -102,6 +102,8 @@ const SignupPage = () => {
             className={`${styles.input} ${isDark && styles['input--dark']}`}
             value={formData.password}
             onChange={handleChange}
+            minLength={8}
+            autoComplete="new-password"
             required
           />
         </div>
