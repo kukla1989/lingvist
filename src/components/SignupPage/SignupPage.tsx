@@ -111,7 +111,7 @@ const SignupPage = () => {
         <button
           className={`${styles.submit} ${isDark && styles['submit--dark']}`}
           type="submit"
-        > Зареєструватися
+        > create an account
         </button>
 
         <div className={styles.agreement}>

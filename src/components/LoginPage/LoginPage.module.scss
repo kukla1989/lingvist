@@ -18,9 +18,17 @@ a {
   color: $cDark;
 }
 
-.register {
+@include form;
+$formElWidth: 80%;
+.input-wrapper {
+  width: $formElWidth;
+}
+
+.signup {
   @include boxButton;
+  width: $formElWidth;
   justify-content: center;
+
   border: 1px solid $cDark;
   font-family: "Noto Sans", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
   font-weight: 500;
@@ -33,17 +41,14 @@ a {
     background-color: $cDark;
     color: $cGray300;
   }
-}
 
-.register--dark {
-   border: 1px solid $cGray300;
-  color: $cGrayWarm;
-}
-
-.loginBtn {
-  justify-content: space-between;
-
-  & > :nth-child(2) {
-      transform: translateX(-30%);
+  &--dark {
+    border: 1px solid $cGray300;
+    color: $cGrayWarm;
   }
+}
+
+.submit {
+  width: calc($formElWidth + 7%);
+  box-sizing: border-box;
 }
