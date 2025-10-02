@@ -1,7 +1,8 @@
 import { useDispatch } from "react-redux";
 import styles from "./DarkMode.module.scss";
-import { AppDispatch, toggle } from "../../store.ts";
+import { AppDispatch } from "../../store/store.ts";
 import { useIsDark } from "../../hooks/useIsDark.ts";
+import { toggle } from "../../store/darkModeSlice.ts";
 
 type DarkModeProps = {
   size?: number;

@@ -9,8 +9,14 @@ import { Link } from "react-router-dom";
 import WordsListSVG from "../../assets/icons/WordsListSVG";
 import LogOutSVG from "../../assets/icons/LogOutSVG.tsx";
 import DarkMode from "../DarkMode/DarkMode.tsx";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../store/authSlice.ts";
+import { RootState } from "../../store/store.ts";
 
 const Menu = () => {
+  const dispatch = useDispatch();
+  const user = useSelector((state: RootState) => state.auth.user);
+
   return (
     <header className={styles.menu}>
       <Link to="/" className={styles.logo}>
@@ -57,7 +63,9 @@ const Menu = () => {
           </li>
 
           <li className={styles.navitem}>
-            <NavLink className={styles.navlink} to="/welcome">
+            <NavLink className={styles.navlink} to="/welcome"
+              onClick={() => dispatch(logout())}
+            >
               <div className={styles.iconWrapper}>
                 <LogOutSVG iconColor={vars.cBlueGray} />
               </div>
@@ -70,6 +78,8 @@ const Menu = () => {
       <div className={styles.darkMode}>
         <DarkMode size={2.3} />
       </div>
+
+      <div className="user">{`${user?.name} ${user?.email}`}</div>
     </header>
   );
 };

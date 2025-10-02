@@ -42,7 +42,9 @@ const SignupPage = () => {
       if (!res.ok) {
         setError(data.error || "Something went wrong, pls try again");
       } else {
-        navigate("/", {state: { showModal: true, user: formData.name }});
+        navigate("/", {state: { showModal: true, user: formData.name,
+            msg: ('Welcome ' + formData.name + ' - your registration is complete!')
+        }});
       }
     } catch (err) {
       console.error(err);

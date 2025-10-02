@@ -2,12 +2,12 @@ import styles from "./Modal.module.scss";
 import { useEffect } from "react";
 
 interface ModalProps {
-  children: React.ReactNode,
   onClose: () => void;
   isOpen?: boolean;
+  msg: string;
 }
 
-function Modal({ children, onClose, isOpen = true }: ModalProps) {
+function Modal({ onClose, isOpen = true, msg }: ModalProps) {
   if (!isOpen) return null;
 
   useEffect(() => {
@@ -19,7 +19,7 @@ function Modal({ children, onClose, isOpen = true }: ModalProps) {
   return (
     <>
       <div className={styles.modal}>
-        {children}
+        <div>{msg}</div>
 
         <button className={styles.ok} onClick={onClose}>ok</button>
       </div>

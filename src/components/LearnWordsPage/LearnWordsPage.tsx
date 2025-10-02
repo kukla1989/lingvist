@@ -20,7 +20,7 @@ const LearnWordsPage = () => {
     if (location.state?.showModal === true) {
       setIsModalOpen(true)
       navigate(location.pathname, {
-        state: { ...location.state, showModal: false },
+        state: { ...location.state, showModal: false, msg: null },
         replace: true
       });
     }
@@ -53,9 +53,8 @@ const LearnWordsPage = () => {
         </div>
       </div>
 
-      {isModalOpen && (<Modal onClose={() => setIsModalOpen(false)}>
-        <p>Welcome {location?.state?.user} - your registration is complete!</p>
-      </Modal>)}
+      {isModalOpen && <Modal onClose={() => setIsModalOpen(false)}
+                             msg={location.state?.msg} />}
     </div>
   );
 };

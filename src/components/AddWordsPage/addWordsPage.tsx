@@ -3,6 +3,7 @@ import { useIsDark } from "../../hooks/useIsDark.ts";
 
 const addWordsPage = () => {
   const isDark = useIsDark();
+
   return (
     <div className={styles.addWordsPage}>
       <div className={styles.card}>

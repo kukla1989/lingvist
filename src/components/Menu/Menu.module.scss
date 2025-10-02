@@ -7,6 +7,7 @@ $menuWidth: 35px;
   width: $menuWidth;
   height: 100vh;
   padding: 20px;
+  position: relative;
 
   transition: width $transition ease;
   background-color: var(--mainBG);
@@ -89,4 +90,8 @@ $menuItemWidth: 40px;
   margin-top: 20px;
   display: flex;
   justify-content: center;
+}
+
+.user {
+  text-align: center;
 }
