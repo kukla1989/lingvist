@@ -8,7 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
   gap: 30px;
   background-color: var(--mainBG);
   color: var(--blackGray);
@@ -16,6 +16,8 @@
 
   @include onPhone {
     gap: 15px;
+    flex-direction: column;
+    min-width: 90%;
   }
 }
 
@@ -35,4 +37,9 @@
 
 .input--dark {
   border: 1px solid $cGrayWarm;
+}
+
+.submit {
+  width: auto;
+  @include submit;
 }

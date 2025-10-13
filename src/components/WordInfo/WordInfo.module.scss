@@ -1,0 +1,67 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.wordInfo {
+  @include card;
+
+  background-color: var(--mainBG);
+  color: var(--blackGray);
+
+  @include onPhone {
+    min-width: 90%;
+  }
+}
+
+.word {
+}
+
+.pronunciation {
+}
+
+.wordTranslation {
+}
+
+.translations {
+}
+
+.definitions {
+  padding-left: 30px;
+
+  @include onPhone {
+    padding-left: 5px;
+  }
+}
+
+.partOfSpeech {
+  font-size: 1.2em;
+  @include onPhone {
+    font-size: 1.3em;
+    text-decoration: underline;
+  }
+}
+
+.even {
+  margin-bottom: 25px;
+  color: $cBlueGray;
+  font-size: 0.8em;
+
+  @include onPhone {
+    margin-bottom: 5px;
+  }
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 20px;
+
+  font-size: 1.4em;
+
+  @include onPhone {
+    gap: 10px;
+  }
+}
+
+

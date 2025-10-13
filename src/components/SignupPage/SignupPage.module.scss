@@ -39,7 +39,7 @@
   text-decoration: underline;
 }
 
- .error {
+.error {
   color: red
 }
 
@@ -49,6 +49,10 @@
   @include onPhone {
     width: 350px;
   }
+}
+
+.submit {
+  @include submit;
 }
 
 

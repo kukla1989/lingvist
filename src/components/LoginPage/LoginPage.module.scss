@@ -28,12 +28,19 @@ $formElWidth: 80%;
   width: $formElWidth;
 }
 
+.submit {
+  @include submit;
+
+  box-sizing: border-box;
+  width: calc($formElWidth + 7%);
+}
+
 .signup {
   @include boxButton;
   width: $formElWidth;
   justify-content: center;
 
-  border: 1px solid $cDark;
+  border: 1px solid var(--cBorder);
   font-family: "Noto Sans", "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
   font-weight: 500;
   font-size: 16px;
@@ -47,12 +54,6 @@ $formElWidth: 80%;
   }
 
   &--dark {
-    border: 1px solid $cGray300;
     color: $cGrayWarm;
   }
-}
-
-.submit {
-  width: calc($formElWidth + 7%);
-  box-sizing: border-box;
 }

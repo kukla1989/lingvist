@@ -7,6 +7,7 @@ import MailSVG from "../../assets/icons/MailSVG.tsx";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../store/authSlice.ts";
+import { darkStyle } from "../../_utils/helpers.ts";
 
 const api = import.meta.env.VITE_API_URL
 
@@ -88,13 +89,13 @@ const LoginPage = () => {
       </div>
 
       <button
-        className={`${styles.submit} ${isDark && styles['submit--dark']}`}
+        className={darkStyle('submit', styles)}
         type="submit"
       > log in
       </button>
 
       <NavLink to="/welcome/signup"
-               className={`${styles.signup} ${isDark ? styles['signup--dark'] : ''}`}>
+               className={darkStyle('signup', styles)}>
         sign up
       </NavLink>
     </form>

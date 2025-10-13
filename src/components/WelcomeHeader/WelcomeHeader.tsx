@@ -3,10 +3,9 @@ import WelcomeLogoSVG from "../../assets/icons/WelcomeLogoSVG";
 import MobileWelcomeHeader from "../MobileWelcomeHeader/MobileWelcomeHeader";
 import styles from "./WelcomeHeader.module.scss";
 import DarkMode from "../DarkMode/DarkMode.tsx";
-import { useIsDark } from "../../hooks/useIsDark.ts";
+import { darkStyle } from "../../_utils/helpers.ts";
 
 const WelcomeHeader = () => {
-  const isDark = useIsDark();
   return (
     <div className={styles.welcomeHeader}>
       <div className={styles.desktopHeader}>
@@ -26,7 +25,7 @@ const WelcomeHeader = () => {
           </Link>
 
           <Link to="/welcome/login"
-                className={`${styles.logIn} ${isDark && styles['logIn--dark']}`}>
+            className={darkStyle('logIn', styles)}>
             log in
           </Link>
         </div>

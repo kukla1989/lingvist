@@ -62,7 +62,7 @@
   .input-wrapper {
     display: flex;
     align-items: center;
-    border: 1px solid $cGrayWarm;
+    border: 1px solid var(--cBorder);
     border-radius: 10px;
     padding: 0 15px;
     background-color: var(--inputBG);
@@ -76,28 +76,32 @@
     background: transparent;
     font-size: 24px;
     text-align: center;
+
+    &::placeholder {
+      color: $cLightBlue;
+    }
+  }
+}
+
+@mixin submit {
+  width: 75%;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--cBackground);
+
+  border: 1px solid var(--cBorder);
+  font-weight: 500;
+  font-size: 20px;
+  transition: background-color $transition ease,
+  color $transition ease;
+
+  &:hover {
+    background-color: $cDark;
+    color: $cWhite;
   }
 
-  .submit {
-    width: 75%;
-    height: 50px;
-    border-radius: 10px;
-    background-color: var(--cBackground);
-
-    border: 1px solid $cGrayWarm;
-    font-weight: 500;
-    font-size: 20px;
-    transition: background-color $transition ease,
-    color $transition ease;
-
-    &:hover {
-      background-color: $cDark;
-      color: $cWhite;
-    }
-
-    &--dark {
-      border: 1px solid $cGray300;
-      color: $cGrayWarm;
-    }
+  &--dark {
+    border: 1px solid $cGray300;
+    color: $cGrayWarm;
   }
 }

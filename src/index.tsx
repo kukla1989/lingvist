@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { HashRouter, Route, Routes } from "react-router-dom";
 
 import "./index.scss";
-import AddWordsPage from "./components/AddWordsPage/addWordsPage";
+import AddWordsPage from "./components/AddWordsPage/DictionaryPage.tsx";
 import { App } from "./App";
 import LearnWordsPage from "./components/LearnWordsPage/LearnWordsPage";
 import WordsListPage from "./components/WordsListPage/WordsListPage";

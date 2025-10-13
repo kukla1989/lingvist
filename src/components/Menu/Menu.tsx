@@ -46,7 +46,7 @@ const Menu = () => {
               className={({ isActive }) => `${styles.navlink} ${isActive ? styles.active : ""}`}
             >
               <AddSVG iconColor={vars.cBlueGray} />
-              add words
+              dictionary
             </NavLink>
           </li>
 
@@ -79,7 +79,7 @@ const Menu = () => {
         <DarkMode size={2.3} />
       </div>
 
-      <div className="user">{`${user?.name} ${user?.email}`}</div>
+      <div className={styles.userInfo}>{`${user?.name} ${user?.email}`}</div>
     </header>
   );
 };

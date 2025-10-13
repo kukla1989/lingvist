@@ -30,9 +30,10 @@ $headerHeight: 80px;
   --mainText: #{$cBlueGray};
   --blackGray: #{$cDark};
   --inputBG: #{$cGrayLightInput};
+  --cBorder: #{$cDark};
 }
 
-$cGrayWarm: #cfcac1;
+$cGrayWarm: #f4f4f2;
 .dark {
   --cBackground: #2f3336;
   --mainBG: #232526;
@@ -40,4 +41,6 @@ $cGrayWarm: #cfcac1;
   --cActive: rgba(189, 185, 185, 0.3);
   --blackGray: #{$cGrayWarm};
   --inputBG: #202223;
+  --cBorder: #{$cGray300};
+
 }

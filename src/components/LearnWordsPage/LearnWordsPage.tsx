@@ -4,6 +4,7 @@ import styles from "./LearnWordsPage.module.scss";
 import { useIsDark } from "../../hooks/useIsDark.ts";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "../Modal/Modal.tsx";
+import { darkStyle } from "../../_utils/helpers.ts";
 
 const sentence1 = "Where are you? – I am at";
 const sentence2 = '.';
@@ -33,7 +34,7 @@ const LearnWordsPage = () => {
   return (
     <div className={styles.learnWordsPage}>
       <div
-        className={`${styles.card} ${styles.learnCard} ${isDark && styles['card--dark']}`}
+        className={`${darkStyle('card', styles)} ${styles.learnCard}`}
       >
         <WordProgress level={4} />
         <div className={styles.sentence}>

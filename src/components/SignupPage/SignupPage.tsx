@@ -8,6 +8,7 @@ import UserSVG from "../../assets/icons/UserSVG.tsx";
 import MailSVG from "../../assets/icons/MailSVG.tsx";
 import PasswordSVG from "../../assets/icons/PasswordSVG.tsx";
 import { useNavigate } from 'react-router-dom';
+import { darkStyle } from "../../_utils/helpers.ts";
 const api = import.meta.env.VITE_API_URL
 
 interface FormData {
@@ -73,7 +74,7 @@ const SignupPage = () => {
             type="text"
             name="name"
             placeholder="username"
-            className={`${styles.input} ${isDark && styles['input--dark']}`}
+            className={darkStyle('input', styles)}
             value={formData.name}
             onChange={handleChange}
             autoComplete="username"

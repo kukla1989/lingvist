@@ -4,3 +4,10 @@ export interface Word {
   repetitions: number;
   lastDate: Date;
 }
+
+export interface WordType {
+  word: string;
+  pronunciation: string;
+  translations: [string, string[][]][];
+  wordTranslation: string;
+}
