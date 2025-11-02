@@ -1,6 +1,7 @@
 import styles from "./WordInfo.module.scss";
 import { WordType } from "../../assets/types.tsx";
 import { v4 as uuidv4 } from "uuid";
+import { removeBraces } from "../../_utils/helpers.ts";
 
 function WordInfo({ wordInfo }: { wordInfo: WordType }) {
   const { word, pronunciation, translations, wordTranslation } = wordInfo;
@@ -15,23 +16,28 @@ function WordInfo({ wordInfo }: { wordInfo: WordType }) {
         <div className={styles.wordTranslation}>{wordTranslation}</div>
       </div>
 
-      <div className={styles.translations}>{translations.map(pair => {
-        return (
+      <div className={styles.translations}>
+        {Object.entries(translations).map(([partOfSpeech, definitionsArr]) => (
           <div className={styles.table} key={uuidv4()}>
-            <div className={styles.partOfSpeech} key={uuidv4()}>
-              {pair[0]}
-            </div>
+            <div className={styles.partOfSpeech}>{partOfSpeech}</div>
 
-            <div className={styles.definitions} key={uuidv4()}>
-              {pair[1].map(sentences => sentences
-                .map((translation, ind) => (
-                  <div key={uuidv4()}
-                       className={ind % 2 ? styles.even : ''}>{translation}</div>
-                )))}
+            <div className={styles.definitions}>
+              {definitionsArr.map(definitionGroup => (
+                <div key={uuidv4()} className={styles.definitionGroup}>
+                  {definitionGroup.map(definitionEntry => (
+                    <div key={uuidv4()} className={styles.definitionItem}>
+                      <div className={styles.definitionText}>{removeBraces(definitionEntry.definition)}</div>
+                      {definitionEntry.example && (
+                        <div className={styles.exampleText}>{removeBraces(definitionEntry.example)}</div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
-        )
-      })}</div>
+        ))}
+      </div>
 
     </div>
   );

@@ -5,9 +5,21 @@ export interface Word {
   lastDate: Date;
 }
 
+export interface TranslationEntry {
+  definition: string;
+  example?: string | null;
+  ukrDefinition?: string;
+  ukrExample?: string;
+}
+
 export interface WordType {
   word: string;
   pronunciation: string;
-  translations: [string, string[][]][];
+  audio: string;
   wordTranslation: string;
+  translations: {
+    [partOfSpeech: string]: TranslationEntry[][];
+  };
 }
+
+
