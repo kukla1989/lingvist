@@ -12,6 +12,20 @@
   }
 }
 
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding: 10px 20px;
+
+  font-size: 1.4em;
+
+  @include onPhone {
+    gap: 10px;
+  }
+}
+
 .word {
 }
 
@@ -40,7 +54,7 @@
   }
 }
 
-.even {
+.example {
   margin-bottom: 25px;
   color: $cBlueGray;
   font-size: 0.8em;
@@ -50,18 +64,7 @@
   }
 }
 
-.top {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  padding: 10px 20px;
-
-  font-size: 1.4em;
-
-  @include onPhone {
-    gap: 10px;
-  }
+.definitionItem {
 }
 
 

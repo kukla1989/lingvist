@@ -1,0 +1,12 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.dividerLine{
+  height: 3px;
+  margin: 15px 0;
+  background-color: $cGray200;
+
+  @include onPhone {
+    margin: 10px 0;
+  }
+}

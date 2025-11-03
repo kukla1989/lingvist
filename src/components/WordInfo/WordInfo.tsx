@@ -2,6 +2,7 @@ import styles from "./WordInfo.module.scss";
 import { WordType } from "../../assets/types.tsx";
 import { v4 as uuidv4 } from "uuid";
 import { removeBraces } from "../../_utils/helpers.ts";
+import DividerLine from "../DividerLine/DividerLine.tsx";
 
 function WordInfo({ wordInfo }: { wordInfo: WordType }) {
   const { word, pronunciation, translations, wordTranslation } = wordInfo;
@@ -26,10 +27,12 @@ function WordInfo({ wordInfo }: { wordInfo: WordType }) {
                 <div key={uuidv4()} className={styles.definitionGroup}>
                   {definitionGroup.map(definitionEntry => (
                     <div key={uuidv4()} className={styles.definitionItem}>
-                      <div className={styles.definitionText}>{removeBraces(definitionEntry.definition)}</div>
+                      <div className={styles.definition}>{removeBraces(definitionEntry.definition)}</div>
+
                       {definitionEntry.example && (
-                        <div className={styles.exampleText}>{removeBraces(definitionEntry.example)}</div>
+                        <div className={styles.example}>{removeBraces(definitionEntry.example)}</div>
                       )}
+                      <DividerLine />
                     </div>
                   ))}
                 </div>
