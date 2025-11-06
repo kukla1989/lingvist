@@ -36,6 +36,7 @@
   margin: 10px;
   padding: 10px;
   @include button;
+  color: var(--mainText);
 }
 
 .word {
@@ -58,6 +59,11 @@
   }
 }
 
+.definitionSection {
+  display: flex;
+  gap: 10px;
+}
+
 .partOfSpeech {
   font-size: 1.2em;
   @include onPhone {
@@ -67,7 +73,7 @@
 }
 
 .example {
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   color: $cBlueGray;
   font-size: 0.8em;
 
@@ -79,4 +85,9 @@
 .definitionItem {
 }
 
+.showMore {
+  padding: 7px;
+  color: var(--blackGray);
+  @include button;
+}
 
