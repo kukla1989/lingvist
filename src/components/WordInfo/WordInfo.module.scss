@@ -23,7 +23,19 @@
 
   @include onPhone {
     gap: 10px;
+    flex-direction: column;
   }
+}
+
+.notFound {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.similarWord {
+  margin: 10px;
+  padding: 10px;
+  @include button;
 }
 
 .word {

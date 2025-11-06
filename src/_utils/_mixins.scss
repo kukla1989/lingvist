@@ -83,9 +83,7 @@
   }
 }
 
-@mixin submit {
-  width: 75%;
-  height: 50px;
+@mixin button {
   border-radius: 10px;
   background-color: var(--cBackground);
 
@@ -104,4 +102,11 @@
     border: 1px solid $cGray300;
     color: $cGrayWarm;
   }
+}
+
+@mixin submit {
+  width: 75%;
+  height: 50px;
+
+  @include button;
 }

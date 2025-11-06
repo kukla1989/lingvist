@@ -20,11 +20,20 @@ const DictionaryPage = () => {
 
   const handleSubmit: MouseEventHandler<HTMLButtonElement> = async (e) => {
     e.preventDefault()
-    setWordInfo(await getWordInfo(word))
+    await searchWord(word)
+  }
+
+  async function searchWord(word: string) {
+    const wordInfo = await getWordInfo(word);
+    setWordInfo(wordInfo)
+
+    if (wordInfo.notFound || wordInfo.misspelled) {
+      return;
+    }
+
     setWord('')
   }
 
-  console.log(wordInfo, 'wordInfo before return')
 
   return (
     <div className={styles.addWordsPage}>
@@ -47,7 +56,7 @@ const DictionaryPage = () => {
         </button>
       </div>
 
-      {wordInfo && <WordInfo wordInfo={wordInfo}/>}
+      {wordInfo && <WordInfo wordInfo={wordInfo} searchWord={searchWord}/>}
     </div>
   );
 };

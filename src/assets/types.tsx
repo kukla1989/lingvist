@@ -17,6 +17,9 @@ export interface WordType {
   pronunciation: string;
   audio: string;
   wordTranslation: string;
+  notFound: boolean;
+  misspelled: boolean;
+  similarWords?: string[];
   translations: {
     [partOfSpeech: string]: TranslationEntry[][];
   };
