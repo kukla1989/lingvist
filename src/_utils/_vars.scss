@@ -31,6 +31,7 @@ $headerHeight: 80px;
   --blackGray: #{$cDark};
   --inputBG: #{$cGrayLightInput};
   --cBorder: #{$cDark};
+  --cOrange: #{$cLightOrange};
 }
 
 $cGrayWarm: #f4f4f2;
@@ -42,5 +43,5 @@ $cGrayWarm: #f4f4f2;
   --blackGray: #{$cGrayWarm};
   --inputBG: #202223;
   --cBorder: #{$cGray300};
-
+  --cOrange: #682905;
 }

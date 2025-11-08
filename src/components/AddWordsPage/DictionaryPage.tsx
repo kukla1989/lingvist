@@ -1,10 +1,10 @@
 import styles from "./DictionaryPage.module.scss";
-import { darkStyle } from "../../_utils/helpers.ts";
+import { darkStyle, getBackendApi } from "../../_utils/helpers.ts";
 import WordInfo from "../WordInfo/WordInfo.tsx";
 import { MouseEventHandler, useState } from "react";
+const api = getBackendApi();
 
 async function getWordInfo(word: string) {
-  const api = import.meta.env.VITE_API_URL;
   const res = await fetch(`${api}/words/new`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -55,6 +55,8 @@ const DictionaryPage = () => {
         >translate
         </button>
       </div>
+
+      <div className={styles.note}>to add word for learning pls press on it </div>
 
       {wordInfo && <WordInfo wordInfo={wordInfo} searchWord={searchWord}/>}
     </div>

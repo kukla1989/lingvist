@@ -11,3 +11,11 @@ export function removeBraces(text: string) {
     .replace(/\{[^}]*}/g, '')                  // delete all other {string}
     .trim();
 }
+
+export function getBackendApi() {
+  if (import.meta.env.MODE === 'development') {
+    return 'http://localhost:3000';
+  }
+
+  return 'https://lingvist-backend.onrender.com';
+}

@@ -1,7 +1,7 @@
 import styles from "./WordInfo.module.scss";
 import { TranslationEntry, WordType } from "../../assets/types.tsx";
 import { v4 as uuidv4 } from "uuid";
-import { removeBraces } from "../../_utils/helpers.ts";
+import { getBackendApi, removeBraces } from "../../_utils/helpers.ts";
 import DividerLine from "../DividerLine/DividerLine.tsx";
 import { useEffect, useState } from "react";
 
@@ -40,6 +40,16 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
     }
   }, [wordInfo])
 
+  const handleAddWord = async (word: string, definition: string, example: string | null) => {
+    const res = await fetch(`${getBackendApi()}/userWords/add`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ word, definition, example: example || null }),
+    })
+
+    const result = await res.json()
+    console.log(result, 'res handleAddWord')
+  }
 
   return (
     <div className={styles.wordInfo}>
@@ -70,7 +80,7 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
             </div>
 
             <div className={styles.translations}>
-              {Object.entries(translations).map(([partOfSpeech, definitionsByPartOfSpeech]) => (
+              {Object.entries(translations || {}).map(([partOfSpeech, definitionsByPartOfSpeech]) => (
                 <div className={styles.table} key={uuidv4()}>
                   <div className={styles.partOfSpeech}>{partOfSpeech}</div>
 
@@ -83,17 +93,25 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
 
                           <div key={uuidv4()}
                                className={styles.definitionGroup}>
-                            {definitionGroup.map(definitionEntry => (
+                            {definitionGroup.map(definition => (
                               <div key={uuidv4()}
-                                   className={styles.definitionItem}>
+                                   className={styles.definitionItem}
+                              >
                                 <div
-                                  className={styles.definition}>{removeBraces(definitionEntry.definition)}</div>
+                                  className={styles.definition}>{removeBraces(definition.definition)}
+                                </div>
 
-                                {definitionEntry.example && (
+                                {definition.example && (
                                   <div
-                                    className={styles.example}>{removeBraces(definitionEntry.example)}</div>
+                                    className={styles.example}>{removeBraces(definition.example)}</div>
                                 )}
+
                                 <DividerLine />
+
+                                <div
+                                  onClick={() => handleAddWord(word, definition.definition, definition.example || null)}
+                                  className={styles.addWord}> add word
+                                </div>
                               </div>
                             ))}
                           </div>
@@ -102,7 +120,10 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
                   </div>
                   {(showMore[partOfSpeech] !== undefined) && (
                     <button className={styles.showMore}
-                      onClick={() => setShowMore({ ...showMore, [partOfSpeech]: !showMore[partOfSpeech] })}
+                            onClick={() => setShowMore({
+                              ...showMore,
+                              [partOfSpeech]: !showMore[partOfSpeech]
+                            })}
                     >
                       {showMore[partOfSpeech]
                         ? 'hide'

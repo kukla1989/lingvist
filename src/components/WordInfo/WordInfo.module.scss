@@ -59,17 +59,21 @@
   }
 }
 
-.definitionSection {
-  display: flex;
-  gap: 10px;
-}
-
 .partOfSpeech {
   font-size: 1.2em;
   @include onPhone {
     font-size: 1.3em;
     text-decoration: underline;
   }
+}
+
+.definitionSection {
+  display: flex;
+  gap: 10px;
+}
+
+.definitionGroup {
+  flex: 1
 }
 
 .example {
@@ -83,6 +87,39 @@
 }
 
 .definitionItem {
+  position: relative;
+
+  &:hover .addWord {
+    opacity: 0.8;
+  }
+
+  &:hover::after {
+    content: "";
+    position: absolute;
+    border-radius: 15px;
+    inset: 0;
+    width: 100%;
+    background-color: rgba(black, 0.7);
+
+    @include onPhone {
+      border-radius: 7px;
+    }
+  }
+}
+
+.addWord {
+  position: absolute;
+  z-index: 10;
+  top: 50%;
+  left: 100px;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+
+  font-size: 1.3em;
+  font-weight: 900;
+  color: $cLightOrange;
+  white-space: nowrap;
 }
 
 .showMore {

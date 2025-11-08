@@ -43,3 +43,17 @@
   width: auto;
   @include submit;
 }
+
+.note {
+  display: none;
+  text-align: center;
+  background-color: var(--cOrange);
+  color: $cGrayWarm;
+  width: 90%;
+  margin: 10px auto;
+  border-radius: 10px;
+
+  @include onPhone {
+    display: block;
+  }
+}
