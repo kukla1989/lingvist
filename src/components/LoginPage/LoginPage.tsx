@@ -7,9 +7,9 @@ import MailSVG from "../../assets/icons/MailSVG.tsx";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../store/authSlice.ts";
-import { darkStyle } from "../../_utils/helpers.ts";
+import { darkStyle, getBackendApi } from "../../_utils/helpers.ts";
 
-const api = import.meta.env.VITE_API_URL
+const api = getBackendApi();
 
 const LoginPage = () => {
   const isDark = useIsDark();

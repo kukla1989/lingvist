@@ -2,9 +2,11 @@ import styles from "./Modal.module.scss";
 import { useEffect } from "react";
 
 interface ModalProps {
-  onClose: () => void;
   isOpen?: boolean;
   msg: string;
+  onClose: (
+    e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent
+  ) => void;
 }
 
 function Modal({ onClose, isOpen = true, msg }: ModalProps) {
