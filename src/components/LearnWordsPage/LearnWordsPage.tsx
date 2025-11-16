@@ -13,13 +13,13 @@ const wordTranslate = 'дім';
 
 const LearnWordsPage = () => {
   const [userWord, setUserWord] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false)
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const location = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (location.state?.showModal === true) {
-      setIsModalOpen(true)
+      setIsLoginModalOpen(true)
       navigate(location.pathname, {
         state: { ...location.state, showModal: false, msg: null },
         replace: true
@@ -37,8 +37,10 @@ const LearnWordsPage = () => {
         className={`${darkStyle('card', styles)} ${styles.learnCard}`}
       >
         <WordProgress level={4} />
+
         <div className={styles.sentence}>
           <span className={styles.senteceBegin}>{sentence1}</span>
+
           <input
             className={`${styles.input} ${isDark && styles['input--dark']}`}
             value={userWord}
@@ -54,7 +56,7 @@ const LearnWordsPage = () => {
         </div>
       </div>
 
-      {isModalOpen && <Modal onClose={() => setIsModalOpen(false)}
+      {isLoginModalOpen && <Modal onClose={() => setIsLoginModalOpen(false)}
                              msg={location.state?.msg} />}
     </div>
   );

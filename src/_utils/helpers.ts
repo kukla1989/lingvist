@@ -7,8 +7,11 @@ export function darkStyle(className: string, styles: CSSModuleClasses) {
 
 export function removeBraces(text: string) {
   return text
-    .replace(/\{sx\|([^|]*)\|\|[^}]*}/g, '$1') // retrieve 'string' from {sx|string||...}
-    .replace(/\{[^}]*}/g, '')                  // delete all other {string}
+    // .replace(/\{sx\|([^|]*)\|\|[^}]*}/g, '$1') // retrieve 'string' from {sx|string||...}
+    // .replace(/\{(?!a_link\|)[^}]*}/g, '')      // remove all {…} except {a_link|…}
+
+    // .replace(/\{sx\|([^|]*)\|\|[^}]*}/g, '$1') // keep sx payload
+    .replace(/\{(?!a_link\|)(?!sx\|)[^}]*}/g, '') // skip a_link and sx
     .trim();
 }
 

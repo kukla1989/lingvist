@@ -5,6 +5,7 @@ import { getBackendApi, removeBraces } from "../../_utils/helpers.ts";
 import DividerLine from "../DividerLine/DividerLine.tsx";
 import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal.tsx";
+import TextWithLinks from "../TextWithLinks/TextWithLinks.tsx";
 
 interface WordInfoProps {
   wordInfo: WordType;
@@ -118,7 +119,7 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
                                      wordTranslation, definition.example || null)}
                               >
                                 <div
-                                  className={styles.definition}>{removeBraces(definition.definition)}
+                                   className={styles.definition}><TextWithLinks text={definition.definition} />
                                 </div>
 
                                 {definition.example && (
