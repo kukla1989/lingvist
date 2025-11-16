@@ -1,7 +1,7 @@
+import { useState } from "react";
 import styles from "./DictionaryPage.module.scss";
 import { darkStyle, getBackendApi } from "../../_utils/helpers.ts";
 import WordInfo from "../WordInfo/WordInfo.tsx";
-import { MouseEventHandler, useState } from "react";
 const api = getBackendApi();
 
 async function getWordInfo(word: string) {
@@ -18,7 +18,7 @@ const DictionaryPage = () => {
   const [wordInfo, setWordInfo] = useState(null)
   const [word, setWord] = useState("")
 
-  const handleSubmit: MouseEventHandler<HTMLButtonElement> = async (e) => {
+  const handleSubmit = async (e: React.FormEvent | React.MouseEvent) => {
     e.preventDefault()
     await searchWord(word)
   }
@@ -47,6 +47,11 @@ const DictionaryPage = () => {
                placeholder="word"
                value={word}
                onChange={(e) => setWord(e.target.value)}
+               onKeyDown={(e) => {
+                 if (e.key === 'Enter') {
+                   handleSubmit(e)
+                 }
+               }}
         />
 
         <button
@@ -56,9 +61,10 @@ const DictionaryPage = () => {
         </button>
       </div>
 
-      <div className={styles.note}>to add word for learning pls press on it </div>
+      <div className={styles.note}>to add word for learning pls press on it
+      </div>
 
-      {wordInfo && <WordInfo wordInfo={wordInfo} searchWord={searchWord}/>}
+      {wordInfo && <WordInfo wordInfo={wordInfo} searchWord={searchWord} />}
     </div>
   );
 };
