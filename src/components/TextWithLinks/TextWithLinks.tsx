@@ -8,7 +8,7 @@ interface TextWithLinksProps {
 // "a {a_link|exotic} movie "
 function TextWithLinks({ text }: TextWithLinksProps) {
   const msg = removeBraces(text);
-  console.log(msg);
+
   return (
     // <>{msg.split(/\{[^|}]+\|([^}]+)\}/g)
     <>{msg.split(/\{(?:a_link|sx)[^|}]*\|([^}|]+)[^}]*}/g)

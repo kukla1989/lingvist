@@ -1,36 +1,44 @@
-import { Word } from "../../assets/types";
-import WordsItem from "../WordsItem/WordsItem";
-import styles from "./WordsListPage.module.scss";
 import { v4 as uuidv4 } from "uuid";
 
-const today = new Date();
-const words: Word[] = [
-  {
-    word: "persistence",
-    translation: "наполеглевість",
-    repetitions: 3,
-    lastDate: new Date(today.setDate(1)),
-  },
-  {
-    word: "key",
-    translation: "ключ",
-    repetitions: 4,
-    lastDate: new Date(today.setDate(2)),
-  },
-  {
-    word: "true",
-    translation: "правда",
-    repetitions: 1,
-    lastDate: new Date(today.setDate(3)),
-  },
-];
+import styles from "./WordsListPage.module.scss";
+import WordsItem from "../WordsItem/WordsItem";
+import { Word } from "../../assets/types";
+import { useEffect, useState } from "react";
+import { getAuthorization, getBackendApi } from "../../_utils/helpers.ts";
+
+async function getWords() {
+  const api = getBackendApi();
+  const res = await fetch(`${api}/userwords`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: getAuthorization(),
+    },
+  })
+
+  return await res.json()
+}
 
 const WordsListPage = () => {
+  const [words, setWords] = useState<Word[]>([]);
+
+  useEffect(() => {
+    const load = async () => {
+      const wordsResponse = await getWords();
+      setWords(wordsResponse)
+    }
+    load();
+  }, [])
+
+
+  console.log(words, 'words')
   return (
     <div className={styles.wordsListPage}>
       <div className={styles.list}>
-        {words.map((word) => (
-          <WordsItem {...word} key={uuidv4()} />
+        {words.length === 0
+          ? <div className={styles.noWords}>no words yet</div>
+          : words.map((word) => (
+          <WordsItem word={word} key={uuidv4()} />
         ))}
       </div>
     </div>

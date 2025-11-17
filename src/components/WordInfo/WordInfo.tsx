@@ -1,7 +1,11 @@
 import styles from "./WordInfo.module.scss";
 import { TranslationEntry, WordType } from "../../assets/types.tsx";
 import { v4 as uuidv4 } from "uuid";
-import { getBackendApi, removeBraces } from "../../_utils/helpers.ts";
+import {
+  getAuthorization,
+  getBackendApi,
+  removeBraces
+} from "../../_utils/helpers.ts";
 import DividerLine from "../DividerLine/DividerLine.tsx";
 import { useEffect, useState } from "react";
 import Modal from "../Modal/Modal.tsx";
@@ -45,16 +49,12 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
   }, [wordInfo])
 
   const handleAddWord = async (word: string, definition: string, translation: string, example: string | null) => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      console.error("No token found");
-    }
 
     const res = await fetch(`${getBackendApi()}/userWords/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`
+        Authorization: getAuthorization(),
       },
       body: JSON.stringify({
         word,

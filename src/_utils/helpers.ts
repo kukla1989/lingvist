@@ -7,10 +7,6 @@ export function darkStyle(className: string, styles: CSSModuleClasses) {
 
 export function removeBraces(text: string) {
   return text
-    // .replace(/\{sx\|([^|]*)\|\|[^}]*}/g, '$1') // retrieve 'string' from {sx|string||...}
-    // .replace(/\{(?!a_link\|)[^}]*}/g, '')      // remove all {…} except {a_link|…}
-
-    // .replace(/\{sx\|([^|]*)\|\|[^}]*}/g, '$1') // keep sx payload
     .replace(/\{(?!a_link\|)(?!sx\|)[^}]*}/g, '') // skip a_link and sx
     .trim();
 }
@@ -21,4 +17,12 @@ export function getBackendApi() {
   }
 
   return 'https://lingvist-backend.onrender.com';
+}
+
+export function getAuthorization() {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    console.error("No token found");
+  }
+  return `Bearer ${token}`;
 }

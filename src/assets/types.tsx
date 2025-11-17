@@ -1,7 +1,11 @@
 export interface Word {
   word: string;
   translation: string;
-  repetitions: number;
+  count_repeat: number;
+  sentence?: string;
+  word_place?: number;
+  ukr_sentence?: string;
+  definition: string;
   lastDate: Date;
 }
 
