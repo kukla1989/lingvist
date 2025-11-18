@@ -24,5 +24,6 @@ export function getAuthorization() {
   if (!token) {
     console.error("No token found");
   }
-  return `Bearer ${token}`;
+
+  return {Authorization: `Bearer ${token}`}
 }

@@ -1,17 +1,36 @@
 import styles from "./WordsItem.module.scss";
 import React from "react";
 import { Word } from "../../assets/types.tsx";
+import CloseButtonSVG from "../../assets/icons/CloseButtonSVG.tsx";
 
 interface WordProps {
   word: Word;
+  deleteUserWord: (wordId: string | null) => void;
 }
 
 const WordsItem: React.FC<WordProps> = ({
-word: { word, definition, translation, lastDate, count_repeat },
+  word: {
+    word,
+    definition, translation,
+    lastDate,
+    count_repeat,
+    wordId,
+  },
+  deleteUserWord
 }) => {
   return (
     <div className={styles.wordsItem}>
-      <div className={styles.word}>{word}</div>
+      <div className={styles.wordWrapper}>
+        <div className={styles.word}>{word}</div>
+
+
+        <div className={styles.delete} onClick={() => {
+          deleteUserWord(wordId || null)
+        }}>
+          <CloseButtonSVG />
+        </div>
+      </div>
+
       <div className={styles.word}>{definition}</div>
 
       <div className={styles.translation}>{translation}</div>

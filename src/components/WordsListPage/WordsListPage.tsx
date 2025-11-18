@@ -12,34 +12,62 @@ async function getWords() {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: getAuthorization(),
+      ...getAuthorization(),
     },
   })
 
   return await res.json()
 }
 
+
 const WordsListPage = () => {
   const [words, setWords] = useState<Word[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  async function deleteUserWord(wordId: string | null) {
+    if (!wordId) {
+      console.error('wordId not found')
+      return;
+    }
+
+    const res = await fetch(`${getBackendApi()}/userwords/${wordId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        ...getAuthorization(),
+      },
+    })
+    setWords(words.filter(word => word.wordId !== wordId))
+    console.log(await res.json())
+  }
 
   useEffect(() => {
     const load = async () => {
       const wordsResponse = await getWords();
+      if (wordsResponse.error) {
+        console.error(wordsResponse.error)
+        return;
+      }
+
       setWords(wordsResponse)
+      setLoading(false);
     }
     load();
   }, [])
 
+  if (loading) return <div className={styles.loading}>loading...</div>;
 
-  console.log(words, 'words')
   return (
     <div className={styles.wordsListPage}>
+
       <div className={styles.list}>
         {words.length === 0
           ? <div className={styles.noWords}>no words yet</div>
           : words.map((word) => (
-          <WordsItem word={word} key={uuidv4()} />
-        ))}
+            <WordsItem deleteUserWord={deleteUserWord} word={word}
+                       key={uuidv4()} />
+          ))
+        }
       </div>
     </div>
   );

@@ -54,7 +54,7 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: getAuthorization(),
+        ...getAuthorization(),
       },
       body: JSON.stringify({
         word,
