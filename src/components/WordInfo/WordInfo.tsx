@@ -8,8 +8,8 @@ import {
 } from "../../_utils/helpers.ts";
 import DividerLine from "../DividerLine/DividerLine.tsx";
 import { useEffect, useState } from "react";
-import Modal from "../Modal/Modal.tsx";
 import TextWithLinks from "../TextWithLinks/TextWithLinks.tsx";
+import ToastModal from "../ToastModal/ToastModal.tsx";
 
 interface WordInfoProps {
   wordInfo: WordType;
@@ -119,7 +119,8 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
                                      wordTranslation, definition.example || null)}
                               >
                                 <div
-                                   className={styles.definition}><TextWithLinks text={definition.definition} />
+                                  className={styles.definition}><TextWithLinks
+                                  text={definition.definition} />
                                 </div>
 
                                 {definition.example && (
@@ -132,15 +133,9 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
                                 <div
                                   className={styles.addWord}> add word
                                 </div>
-
-                                <Modal
-                                  onClose={(e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent) => {
-                                    setShowModal(false);
-                                    e?.stopPropagation();
-                                  }}
-                                  msg={modalMsg}
-                                  isOpen={showModal}
-                                />
+                                {showModal && <ToastModal msg={modalMsg} time={1500}
+                                  afterClose={() => setShowModal(false)}
+                                />}
                               </div>
                             ))}
                           </div>

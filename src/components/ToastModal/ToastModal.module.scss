@@ -1,0 +1,26 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.toastModal {
+  width: 300px;
+  height: 200px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+  background-color: $cBlueGray;
+
+  @include onPhone {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.msg {
+}
