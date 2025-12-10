@@ -49,7 +49,7 @@ const WordsListPage = () => {
         return;
       }
 
-      setWords(wordsResponse)
+      setWords(wordsResponse.reverse())
       setLoading(false);
     }
     load();

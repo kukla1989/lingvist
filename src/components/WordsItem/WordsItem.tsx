@@ -13,11 +13,12 @@ const WordsItem: React.FC<WordProps> = ({
     word,
     definition, translation,
     lastDate,
-    count_repeat,
+    countRepeat,
     wordId,
   },
   deleteUserWord
 }) => {
+
   return (
     <div className={styles.wordsItem}>
       <div className={styles.wordWrapper}>
@@ -42,7 +43,7 @@ const WordsItem: React.FC<WordProps> = ({
 
         <div className={styles.verticalBar}>|</div>
 
-        <div className={styles.bottomElement}>Повторень: {count_repeat}</div>
+        <div className={styles.bottomElement}>Повторень: {countRepeat}</div>
       </div>
 
       <div className={styles.bottomLine}></div>
