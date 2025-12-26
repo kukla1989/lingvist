@@ -1,16 +1,15 @@
 import { v4 as uuidv4 } from "uuid";
+import { useEffect, useState } from "react";
 
 import styles from "./WordsListPage.module.scss";
 import WordsItem from "../WordsItem/WordsItem";
+import Loading from "../Loading/Loading.tsx";
 import { Word } from "../../assets/types";
-import { useEffect, useState } from "react";
 import {
   getAuthorization,
   getBackendApi,
   getUserWords
 } from "../../_utils/helpers.ts";
-
-
 
 
 const WordsListPage = () => {
@@ -49,7 +48,7 @@ const WordsListPage = () => {
     load();
   }, [])
 
-  if (loading) return <div className={styles.loading}>loading...</div>;
+  if (loading) return <Loading />
 
   return (
     <div className={styles.wordsListPage}>
