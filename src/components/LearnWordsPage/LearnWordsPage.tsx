@@ -6,8 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "../Modal/Modal.tsx";
 import { darkStyle } from "../../_utils/helpers.ts";
 
-const sentence1 = "Where are you? – I am at";
-const sentence2 = '.';
+const sentenceBeg = "Where are you? – I am at";
+const sentenceEnd = '.';
 const word = "home";
 const wordTranslate = 'дім';
 
@@ -39,15 +39,15 @@ const LearnWordsPage = () => {
         <WordProgress level={4} />
 
         <div className={styles.sentence}>
-          <span className={styles.senteceBegin}>{sentence1}</span>
+          <span className={styles.senteceBegin}>{sentenceBeg}</span>
 
           <input
-            className={`${styles.input} ${isDark && styles['input--dark']}`}
+            className={`${styles.userWord} ${isDark && styles['input--dark']}`}
             value={userWord}
             onChange={onSetWord}
             style={{ width: 8 * word.length + 30 + "px" }}
           />
-          <span className={styles.senteceEnd}>{sentence2}</span>
+          <span className={styles.senteceEnd}>{sentenceEnd}</span>
         </div>
 
         <div

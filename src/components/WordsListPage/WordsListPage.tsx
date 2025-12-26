@@ -4,20 +4,13 @@ import styles from "./WordsListPage.module.scss";
 import WordsItem from "../WordsItem/WordsItem";
 import { Word } from "../../assets/types";
 import { useEffect, useState } from "react";
-import { getAuthorization, getBackendApi } from "../../_utils/helpers.ts";
+import {
+  getAuthorization,
+  getBackendApi,
+  getUserWords
+} from "../../_utils/helpers.ts";
 
-async function getWords() {
-  const api = getBackendApi();
-  const res = await fetch(`${api}/userwords`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      ...getAuthorization(),
-    },
-  })
 
-  return await res.json()
-}
 
 
 const WordsListPage = () => {
@@ -43,7 +36,8 @@ const WordsListPage = () => {
 
   useEffect(() => {
     const load = async () => {
-      const wordsResponse = await getWords();
+      const wordsResponse = await getUserWords();
+      console.log(wordsResponse, 'wordsresponse')
       if (wordsResponse.error) {
         console.error(wordsResponse.error)
         return;

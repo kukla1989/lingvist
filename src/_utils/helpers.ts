@@ -27,3 +27,16 @@ export function getAuthorization() {
 
   return {Authorization: `Bearer ${token}`}
 }
+
+export  async function getUserWords() {
+  const api = getBackendApi();
+  const res = await fetch(`${api}/userwords`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      ...getAuthorization(),
+    },
+  })
+
+  return await res.json()
+}
