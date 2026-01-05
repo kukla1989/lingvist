@@ -36,7 +36,6 @@ const WordsListPage = () => {
   useEffect(() => {
     const load = async () => {
       const wordsResponse = await getUserWords();
-      console.log(wordsResponse, 'wordsresponse')
       if (wordsResponse.error) {
         console.error(wordsResponse.error)
         return;

@@ -1,7 +1,7 @@
 export interface Word {
   word: string;
   translation: string;
-  countRepeat: number;
+  countRepeat: 1 | 2 | 3 | 4 | 5;
   sentence?: string;
   word_place?: number;
   ukr_sentence?: string;
