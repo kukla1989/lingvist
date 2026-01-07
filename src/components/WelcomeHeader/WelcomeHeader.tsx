@@ -15,7 +15,9 @@ const WelcomeHeader = () => {
 
         <div className={styles.menu}>
           <div className={styles.menuItem}>Business</div>
-          <div className={styles.menuItem}>Blog</div>
+          <Link to="/welcome/blog" className={styles.menuItem}>
+            Blog
+          </Link>
         </div>
 
         <div className={styles.auth}>

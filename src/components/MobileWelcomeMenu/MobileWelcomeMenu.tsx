@@ -14,7 +14,10 @@ const MobileWelcomeMenu: React.FC<MobileWelcomeMenuProps> = React.memo(({ closeM
 
       <ul className={styles.menu}>
         <li className={styles.menuItem}>business</li>
-        <li className={styles.menuItem}>blog</li>
+
+        <Link to="/welcome/blog" className={styles.menuItem} onClick={closeMenu}>
+          blog
+        </Link>
       </ul>
 
       <div className={styles.auth}>

@@ -15,6 +15,7 @@ import { Provider } from "react-redux";
 import { store } from "./store/store.ts";
 import PublicRoute from "./components/PublicRoute.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
+import BlogPage from "./components/BlogPage/BlogPage.tsx";
 
 const root = createRoot(document.getElementById("root")!);
 root.render(
@@ -22,7 +23,6 @@ root.render(
     <React.StrictMode>
       <HashRouter>
         <Routes>
-          {/*<Route path="/" element={<App />}>*/}
           <Route
             path="/"
             element={
@@ -37,7 +37,6 @@ root.render(
             <Route path="/words-list" element={<WordsListPage />} />
           </Route>
 
-          {/*<Route path="welcome" element={<AppWelcome />}>*/}
           <Route
             path="welcome"
             element={
@@ -48,6 +47,7 @@ root.render(
           > <Route index element={<WelcomePage />} />
             <Route path="signup" element={<SignupPage />} />
             <Route path="login" element={<LoginPage />} />
+            <Route path="blog" element={<BlogPage />} />
           </Route>
         </Routes>
       </HashRouter>
