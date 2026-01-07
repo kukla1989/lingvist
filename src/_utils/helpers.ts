@@ -25,10 +25,10 @@ export function getAuthorization() {
     console.error("No token found");
   }
 
-  return {Authorization: `Bearer ${token}`}
+  return { Authorization: `Bearer ${token}` }
 }
 
-export  async function getUserWords() {
+export async function getUserWords() {
   const api = getBackendApi();
   const res = await fetch(`${api}/userwords`, {
     method: "GET",
@@ -39,4 +39,19 @@ export  async function getUserWords() {
   })
 
   return await res.json()
+}
+
+export async function increaseWordCountRepeat(wordId: number) {
+  const api = getBackendApi();
+  const res = await fetch(`${api}/userwords/${wordId}/repeat`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      ...getAuthorization(),
+    }
+  })
+
+  if (!res.ok) {
+    throw new Error('failed to increase count repeat');
+  }
 }

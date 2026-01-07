@@ -19,7 +19,7 @@ const WordProgress: React.FC<WordProgressProps> = ({ level }) => {
           break;
 
         case 2:
-          levelClassName += "lightBlue";
+          levelClassName += "orange";
           break;
 
         case 3:

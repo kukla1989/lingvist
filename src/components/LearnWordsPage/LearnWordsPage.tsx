@@ -4,7 +4,11 @@ import styles from "./LearnWordsPage.module.scss";
 import { useIsDark } from "../../hooks/useIsDark.ts";
 import { useLocation, useNavigate } from "react-router-dom";
 import Modal from "../Modal/Modal.tsx";
-import { darkStyle, getUserWords } from "../../_utils/helpers.ts";
+import {
+  darkStyle,
+  getUserWords,
+  increaseWordCountRepeat
+} from "../../_utils/helpers.ts";
 import { Word } from "../../assets/types.tsx";
 
 const LearnWordsPage = () => {
@@ -32,15 +36,23 @@ const LearnWordsPage = () => {
         return;
       }
 
-      setWords(wordsResponse.reverse())
+      setWords(wordsResponse.reverse()
+        .sort((wordA: Word, wordB: Word) =>
+          wordA.countRepeat - wordB.countRepeat)
+      )
     }
     load();
-
   }, [])
 
   const checkWord = () => {
-    if (userWord === currentWord.word) {
+    if (userWord === currentWord.word.trim()) {
       currentWord.countRepeat++;
+      if (!currentWord.wordId) {
+        console.error('currentWord.wordId is undefined');
+        return;
+      }
+
+      increaseWordCountRepeat(currentWord.wordId)
       setWords([...words]
         .sort((wordA, wordB) => wordA.countRepeat - wordB.countRepeat));
       setUserWord('');
@@ -53,7 +65,7 @@ const LearnWordsPage = () => {
     setTimeout(() => {
       setIsIncorrectWord(false)
       setUserWord('')
-    }, 800)
+    }, 1100)
   }
 
   const isDark = useIsDark();
@@ -87,7 +99,7 @@ const LearnWordsPage = () => {
                 checkWord();
               }
             }}
-            style={{ width: 8 * currentWord?.word?.length + 30 + "px" }}
+            style={{ width: 8 * currentWord?.word?.length + 50 + "px" }}
           />
           <span className={styles.senteceEnd}>{sentenceEnd}</span>
         </div>
@@ -101,7 +113,9 @@ const LearnWordsPage = () => {
         </button>
 
         <div
-          className={`${styles.wordTranslate} ${isDark && styles['wordTranslate--dark']}`}>
+          className={`${styles.wordTranslate} ${isDark && styles['wordTranslate--dark']}`}
+          style={{ marginTop: currentWord?.definition?.length > 140 ? 17 : 70 }}
+        >
           {currentWord?.translation}
         </div>
       </div>

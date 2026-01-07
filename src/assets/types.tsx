@@ -7,7 +7,7 @@ export interface Word {
   ukr_sentence?: string;
   definition: string;
   lastDate: Date;
-  wordId?: string;
+  wordId?: number;
 }
 
 export interface TranslationEntry {
