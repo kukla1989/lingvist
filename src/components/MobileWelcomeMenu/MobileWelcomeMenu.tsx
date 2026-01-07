@@ -11,14 +11,11 @@ const MobileWelcomeMenu: React.FC<MobileWelcomeMenuProps> = React.memo(({ closeM
   return (
     <div className={styles.mobileWelcomeMenu}>
       <div className={styles.overlay} />
-
-      <ul className={styles.menu}>
         <li className={styles.menuItem}>business</li>
 
         <Link to="/welcome/blog" className={styles.menuItem} onClick={closeMenu}>
           blog
         </Link>
-      </ul>
 
       <div className={styles.auth}>
         <Link to="/welcome/signup" className={styles.signUp} onClick={closeMenu}>
