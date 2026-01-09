@@ -1,0 +1,33 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+$width: 300px;
+
+.articlePreview {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  font-family: formular sans-serif;
+
+  @include onPhone {
+    gap: 12px;
+  }
+}
+
+.articleElement {
+  margin: 0;
+  padding: 0;
+}
+
+.img {
+  width: 300px;
+  border-radius: 8px;
+
+  @include onPhone {
+    border-radius: 4px;
+  }
+}
+
+.title {
+  font-size: 22px;
+}

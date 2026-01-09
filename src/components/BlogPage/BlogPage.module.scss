@@ -1,2 +1,17 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
 .blogPage {
+  min-height: 100vh;
+  padding-top: 100px;
+  display: flex;
+  justify-content: center;
+  gap: 55px;
+
+  @include onPhone {
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
 }

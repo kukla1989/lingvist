@@ -1,9 +1,8 @@
-
 @use "../../_utils/mixins" as *;
 @use "../../_utils/vars" as *;
-  
-  .appWelcome {
+
+.appWelcome {
   position: relative;
   padding-top: $headerHeight;
-    background-color: var(--mainBG);
+  background-color: var(--cBackground);
 }
