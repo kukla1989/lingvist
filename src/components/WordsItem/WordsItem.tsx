@@ -5,7 +5,7 @@ import CloseButtonSVG from "../../assets/icons/CloseButtonSVG.tsx";
 
 interface WordProps {
   word: Word;
-  deleteUserWord: (wordId: string | null) => void;
+  deleteUserWord: (wordId: number | null) => void;
 }
 
 const WordsItem: React.FC<WordProps> = ({

@@ -16,7 +16,7 @@ const WordsListPage = () => {
   const [words, setWords] = useState<Word[]>([]);
   const [loading, setLoading] = useState(true);
 
-  async function deleteUserWord(wordId: string | null) {
+  async function deleteUserWord(wordId: number | null) {
     if (!wordId) {
       console.error('wordId not found')
       return;
@@ -29,7 +29,7 @@ const WordsListPage = () => {
         ...getAuthorization(),
       },
     })
-    setWords(words.filter(word => word.wordId !== wordId))
+    setWords(words.filter(word => word.wordId !== +wordId))
     console.log(await res.json())
   }
 
