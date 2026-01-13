@@ -1,0 +1,70 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.articlePage {
+  min-height: 100vh;
+}
+
+.top {
+  padding: 50px;
+  margin: 0 15% 0 0;
+  display: flex;
+
+  @include onPhone {
+    padding: 7px;
+    flex-direction: column;
+    margin: auto;
+  }
+}
+
+.topLeft {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 20px 30px 0;
+
+  @include onPhone {
+    padding: 0;
+  }
+}
+
+.title {
+  font-size: 42px;
+  width: 50%;
+
+  @include onPhone {
+    font-size: 28px;
+    width: auto;
+  }
+}
+
+.author {
+  font-size: 20px;
+
+  @include onPhone {
+    font-size: 16px;
+  }
+}
+
+.line {
+  position: absolute;
+  bottom: 0;
+  margin: 0 auto;
+  width: 85%;
+  height: 2px;
+  background-color: var(--cGrayDarkGray);
+
+  @include onPhone {
+    display: none;
+  }
+}
+
+.topImg {
+  width: 40%;
+
+  @include onPhone {
+    width: 100%;
+  }
+}

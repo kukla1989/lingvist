@@ -3,7 +3,7 @@ import styles from "./Menu.module.scss";
 import CardsSVG from "../../assets/icons/CardsSVG";
 import AddSVG from "../../assets/icons/AddSVG";
 import LogoSVG from "../../assets/icons/LogoSVG";
-import { variables as vars } from "../../_utils/variables";
+import { variables as vars } from "../../_utils/variables.tsx";
 import LingvistSVG from "../../assets/icons/LingvistSVG";
 import { Link } from "react-router-dom";
 import WordsListSVG from "../../assets/icons/WordsListSVG";

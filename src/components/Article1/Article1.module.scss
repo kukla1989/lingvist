@@ -1,0 +1,50 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.article1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  margin: 0 3%;
+}
+
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin: 45px 0 0;
+}
+
+.p {
+  width: 500px;
+
+  text-align: left;
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 400;
+
+  @include onPhone {
+    width: auto;
+  }
+}
+
+.subtitle {
+  padding-left: 30px;
+  text-align: left;
+  font-size: 22px;
+
+  @include onPhone {
+    padding-left: 5px;
+  }
+}
+
+.anchorLink {
+  padding-left: 30px;
+  width: 500px;
+  font-weight: bold;
+  text-decoration: underline;
+
+  &:hover {
+    color: $cLightOrange;
+  }
+}

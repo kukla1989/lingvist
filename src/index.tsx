@@ -16,6 +16,7 @@ import { store } from "./store/store.ts";
 import PublicRoute from "./components/PublicRoute.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import BlogPage from "./components/BlogPage/BlogPage.tsx";
+import ArticlePage from "./components/ArticlePage/ArticlePage.tsx";
 
 const root = createRoot(document.getElementById("root")!);
 root.render(
@@ -48,6 +49,7 @@ root.render(
             <Route path="signup" element={<SignupPage />} />
             <Route path="login" element={<LoginPage />} />
             <Route path="blog" element={<BlogPage />} />
+            <Route path="article/:id" element={<ArticlePage />} />
           </Route>
         </Routes>
       </HashRouter>
