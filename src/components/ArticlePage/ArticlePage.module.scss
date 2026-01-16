@@ -10,7 +10,7 @@
   margin: 0 15% 0 0;
   display: flex;
 
-  @include onPhone {
+  @media (max-width: 1028px) {
     padding: 7px;
     flex-direction: column;
     margin: auto;
@@ -63,6 +63,8 @@
 
 .topImg {
   width: 40%;
+  margin: 0 auto;
+  object-fit: contain;
 
   @include onPhone {
     width: 100%;
