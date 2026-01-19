@@ -219,5 +219,4 @@ function scrollTo(id: string) {
   }
 }
 
-
 export default Article1;

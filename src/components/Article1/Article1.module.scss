@@ -2,39 +2,19 @@
 @use "../../_utils/vars" as *;
 
 .article1 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0 3%;
+ @include article;
 }
 
 .title {
-  text-align: center;
-  font-size: 40px;
-  margin: 45px 0 0;
+  @include title;
 }
 
 .p {
-  width: 650px;
-
-  text-align: left;
-  font-size: 18px;
-  line-height: 1.7;
-  font-weight: 400;
-
-  @include onPhone {
-    width: auto;
-  }
+  @include p;
 }
 
 .subtitle {
-  padding-left: 30px;
-  text-align: left;
-  font-size: 22px;
-
-  @include onPhone {
-    padding-left: 5px;
-  }
+  @include subtitle;
 }
 
 .anchorLink {

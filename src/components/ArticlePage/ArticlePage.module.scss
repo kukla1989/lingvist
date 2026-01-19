@@ -18,7 +18,6 @@
 }
 
 .topLeft {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -32,7 +31,6 @@
 
 .title {
   font-size: 42px;
-  width: 50%;
 
   @include onPhone {
     font-size: 28px;
