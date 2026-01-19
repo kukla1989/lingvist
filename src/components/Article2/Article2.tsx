@@ -1,6 +1,6 @@
 import styles from "./Article2.module.scss";
 
-import img from "../../assets/images/article_small_2_2.jpg";
+import img from "../../assets/images/article2_2.jpg";
 
 function Article2() {
   return (

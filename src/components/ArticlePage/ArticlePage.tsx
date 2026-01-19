@@ -6,12 +6,14 @@ import Article1 from "../Article1/Article1.tsx";
 import styles from "./ArticlePage.module.scss";
 import { articles } from "../../_utils/variables.tsx";
 import Article2 from "../Article2/Article2.tsx";
+import Article3 from "../Article3/Article3.tsx";
 
 function ArticlePage() {
   const { id } = useParams();
   const articlesComponents = [
     <Article1 key={uuid()} />,
     <Article2 key={uuid()} />,
+    <Article3 key={uuid()} />,
   ]
 
   const { title, author, image } = articles[Number(id || 1)]

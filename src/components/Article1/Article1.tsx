@@ -1,6 +1,6 @@
 import styles from "./Article1.module.scss";
-import img from "../../assets/images/article1.jpg";
-import img2 from "../../assets/images/article_small_1_2.jpg";
+import img from "../../assets/images/article1_2.jpg";
+import img2 from "../../assets/images/article1_3.jpg";
 import SelfAd from "../SelfAd/SelfAd.tsx";
 
 const title = "Can You Learn Two Languages at Once?";

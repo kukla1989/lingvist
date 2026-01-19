@@ -1,0 +1,27 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.article3 {
+  @include article;
+}
+
+.title {
+  @include title;
+}
+
+.p {
+  @include p;
+}
+
+.subtitle {
+  @include subtitle;
+}
+
+.img {
+  width: 750px;
+
+  @include onPhone {
+    width: auto;
+    max-width: 96%;
+  }
+}

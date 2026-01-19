@@ -2,9 +2,9 @@ export const variables = {
   cBlueGray: "#626c91",
 };
 
-import img1 from "../assets/images/article_small_1.jpg"
-import img2 from "../assets/images/article_small_2.jpg"
-import img3 from "../assets/images/article_small_3.jpeg"
+import img1 from "../assets/images/article1_1.jpg"
+import img2 from "../assets/images/article2_1.jpg"
+import img3 from "../assets/images/article3_1.jpeg"
 
 export const articles = [
   {
