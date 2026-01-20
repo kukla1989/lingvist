@@ -5,6 +5,7 @@ export const variables = {
 import img1 from "../assets/images/article1_1.jpg"
 import img2 from "../assets/images/article2_1.jpg"
 import img3 from "../assets/images/article3_1.jpeg"
+import img4 from "../assets/images/article4_1.jpg"
 
 export const articles = [
   {
@@ -27,6 +28,13 @@ export const articles = [
     author: 'by Sigrid Laurent | Mar 19, 2025',
     description: 'Thinking about learning a Scandinavian language? This article will help you choose the right one for you, based on your interests and goals.',
     image: img3,
+  },
+  {
+    id: 3,
+    title: 'How To Learn a New Language with Spaced Repetition and flashcards',
+    author: 'by Aubrie Amstutz | Nov 30, 2020',
+    description: 'Learn a new language with spaced repetition. This article will help you learn a new language with spaced repetition.',
+    image: img4,
   },
 ];
 

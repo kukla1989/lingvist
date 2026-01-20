@@ -14,7 +14,9 @@ const WelcomeHeader = () => {
         </NavLink>
 
         <div className={styles.menu}>
-          <div className={styles.menuItem}>Business</div>
+          <Link to="/welcome/article/3" className={styles.menuItem}>
+            About
+          </Link>
           <Link to="/welcome/blog" className={styles.menuItem}>
             Blog
           </Link>
