@@ -2,19 +2,22 @@ import { useEffect, useState } from "react";
 import WordProgress from "../WordProgress/WordProgress";
 import styles from "./LearnWordsPage.module.scss";
 import { useIsDark } from "../../hooks/useIsDark.ts";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Modal from "../Modal/Modal.tsx";
 import {
-  darkStyle,
+  darkClass,
   getUserWords,
   increaseWordCountRepeat
 } from "../../_utils/helpers.ts";
 import { Word } from "../../assets/types.tsx";
+import Loading from "../Loading/Loading.tsx";
 
 const LearnWordsPage = () => {
   const [userWord, setUserWord] = useState("");
   const [words, setWords] = useState<Word[]>([]);
   const [isIncorrectWord, setIsIncorrectWord] = useState<boolean>(false);
+  const [isNoWords, setIsNoWords] = useState<boolean>(false);
+  const [loading, setLoading] = useState(true);
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const location = useLocation();
@@ -36,12 +39,17 @@ const LearnWordsPage = () => {
         return;
       }
 
-      setWords(wordsResponse.reverse()
+      const wordsLoaded = wordsResponse.reverse()
         .sort((wordA: Word, wordB: Word) =>
           wordA.countRepeat - wordB.countRepeat)
-      )
+      setWords(wordsLoaded)
+      if (wordsLoaded.length === 0) {
+        setIsNoWords(true)
+      }
+
     }
     load();
+    setLoading(false);
   }, [])
 
   const checkWord = () => {
@@ -80,10 +88,20 @@ const LearnWordsPage = () => {
     sentenceEnd = sentenceArr.slice(currentWord.word_place + 1).join(' ');
   }
 
+  // console.log(words, ' words')
+  if (isNoWords) return (
+    <div className={styles.noWords}>
+      No words yet. Go to the <Link to="/dictionary">dictionary</Link> to add some
+    </div>
+  )
+
+  if (loading) return <Loading />
+
   return (
     <div className={styles.learnWordsPage}>
       <div
-        className={`${darkStyle('card', styles)} ${styles.learnCard}`}
+        // className={`${darkStyle('card', styles)} ${styles.learnCard}`}
+        className={`${darkClass('card', styles, isDark)} ${styles.learnCard}`}
       >
         <WordProgress level={currentWord?.countRepeat} />
 
@@ -107,7 +125,8 @@ const LearnWordsPage = () => {
         <div className={styles.definition}>{currentWord?.definition}</div>
 
         <button
-          className={darkStyle('submit', styles)}
+          // className={darkStyle('submit', styles)}
+          className={darkClass('submit', styles, isDark)}
           onClick={() => checkWord()}
         >check
         </button>

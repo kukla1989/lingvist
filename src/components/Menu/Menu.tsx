@@ -42,7 +42,7 @@ const Menu = () => {
 
           <li className={styles.navitem}>
             <NavLink
-              to="/add-words"
+              to="/dictionary"
               className={({ isActive }) => `${styles.navlink} ${isActive ? styles.active : ""}`}
             >
               <AddSVG iconColor={vars.cBlueGray} />

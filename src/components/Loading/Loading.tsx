@@ -1,8 +1,11 @@
 import styles from "./Loading.module.scss";
+interface LoadingProps {
+  text?: string;
+}
+function Loading({ text = 'Loading...' }: LoadingProps) {
 
-function Loading() {
   return (
-    <div className={styles.loading}>loading...</div>
+    <div className={styles.loading}>{text}.</div>
   );
 }
 

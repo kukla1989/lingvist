@@ -1,9 +1,8 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 import { HashRouter, Route, Routes } from "react-router-dom";
-
 import "./index.scss";
-import AddWordsPage from "./components/AddWordsPage/DictionaryPage.tsx";
+import DictionaryPage from "./components/DictionaryPage/DictionaryPage.tsx";
 import { App } from "./App";
 import LearnWordsPage from "./components/LearnWordsPage/LearnWordsPage";
 import WordsListPage from "./components/WordsListPage/WordsListPage";
@@ -34,7 +33,7 @@ root.render(
           >
             <Route index element={<LearnWordsPage />} />
             <Route path="/home" element={<LearnWordsPage />} />
-            <Route path="/add-words" element={<AddWordsPage />} />
+            <Route path="/dictionary" element={<DictionaryPage />} />
             <Route path="/words-list" element={<WordsListPage />} />
           </Route>
 

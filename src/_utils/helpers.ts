@@ -5,6 +5,10 @@ export function darkStyle(className: string, styles: CSSModuleClasses) {
   return `${styles[className]} ${isDark && styles[className + '--dark']}`;
 }
 
+export function darkClass(className: string, styles: CSSModuleClasses, isDark: boolean) {
+  return `${styles[className]} ${isDark && styles[className + '--dark']}`;
+}
+
 export function removeBraces(text: string) {
   return text
     .replace(/\{(?!a_link\|)(?!sx\|)[^}]*}/g, '') // skip a_link and sx

@@ -8,6 +8,13 @@
   justify-content: center;
 }
 
+.noWords {
+  text-align: center;
+  font-size: 2em;
+  margin: 300px 0;
+  color: var(--mainText);
+}
+
 .card {
   background-image: linear-gradient(to bottom, $cWhite 60%, $cGray100 40%);
 
@@ -15,7 +22,7 @@
 }
 
 .card--dark {
-  background-image: linear-gradient(to bottom,  var(--mainBG) 60%, #101212 40%);
+  background-image: linear-gradient(to bottom, var(--mainBG) 60%, #101212 40%);
 }
 
 .learnCard {
@@ -60,6 +67,11 @@
     display: block;
   }
 }
+
+.definition {
+  color: #505a5e;
+}
+
 .wordTranslate {
   margin: 70px 0 30px 30px;
 
@@ -67,6 +79,7 @@
     transform: translateY(-50px)
   }
 }
+
 .wordTranslate--dark {
   color: $cGrayWarm;
 }

@@ -1,6 +1,8 @@
 @use "../../_utils/mixins" as *;
 @use "../../_utils/vars" as *;
 
+@include form;
+
 .loginPage {
   height: 100vh;
   display: flex;
@@ -21,8 +23,8 @@ a {
   color: red
 }
 
-@include form;
 $formElWidth: 80%;
+
 .input-wrapper {
   width: $formElWidth;
 }
