@@ -11,6 +11,7 @@ import {
 } from "../../_utils/helpers.ts";
 import { Word } from "../../assets/types.tsx";
 import Loading from "../Loading/Loading.tsx";
+import ToastModal from "../ToastModal/ToastModal.tsx";
 
 const LearnWordsPage = () => {
   const [userWord, setUserWord] = useState("");
@@ -18,6 +19,7 @@ const LearnWordsPage = () => {
   const [isIncorrectWord, setIsIncorrectWord] = useState<boolean>(false);
   const [isNoWords, setIsNoWords] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
+  const [showCongratsModal, setShowCongratsModal] = useState(false);
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const location = useLocation();
@@ -39,7 +41,8 @@ const LearnWordsPage = () => {
         return;
       }
 
-      const wordsLoaded = wordsResponse.reverse()
+      const wordsLoaded = wordsResponse.filter((word: Word) => word.countRepeat < 5)
+        .reverse()
         .sort((wordA: Word, wordB: Word) =>
           wordA.countRepeat - wordB.countRepeat)
       setWords(wordsLoaded)
@@ -47,9 +50,9 @@ const LearnWordsPage = () => {
         setIsNoWords(true)
       }
 
+      setLoading(false);
     }
     load();
-    setLoading(false);
   }, [])
 
   const checkWord = () => {
@@ -60,9 +63,15 @@ const LearnWordsPage = () => {
         return;
       }
 
-      increaseWordCountRepeat(currentWord.wordId)
-      setWords([...words]
-        .sort((wordA, wordB) => wordA.countRepeat - wordB.countRepeat));
+      increaseWordCountRepeat(currentWord.wordId, currentWord.countRepeat);
+      if (currentWord.countRepeat === 5) {
+        setWords(words.filter(word => word.wordId !== currentWord.wordId));
+        setShowCongratsModal(true);
+      } else {
+        setWords([...words]
+          .sort((wordA, wordB) => wordA.countRepeat - wordB.countRepeat));
+      }
+
       setUserWord('');
 
       return;
@@ -88,19 +97,24 @@ const LearnWordsPage = () => {
     sentenceEnd = sentenceArr.slice(currentWord.word_place + 1).join(' ');
   }
 
-  // console.log(words, ' words')
-  if (isNoWords) return (
+  if (loading) return <Loading />
+
+  if (isNoWords || words.length === 0) return (
     <div className={styles.noWords}>
-      No words yet. Go to the <Link to="/dictionary">dictionary</Link> to add some
+      No words to learn yet. Go to the{' '}
+      <Link className={styles.link} to="/dictionary"
+      >dictionary</Link> to add some
+
+      {showCongratsModal &&
+        <ToastModal msg={'congratulations you learned this word!'} time={3000}
+                    afterClose={() => setShowCongratsModal(false)}
+        />}
     </div>
   )
-
-  if (loading) return <Loading />
 
   return (
     <div className={styles.learnWordsPage}>
       <div
-        // className={`${darkStyle('card', styles)} ${styles.learnCard}`}
         className={`${darkClass('card', styles, isDark)} ${styles.learnCard}`}
       >
         <WordProgress level={currentWord?.countRepeat} />
@@ -125,11 +139,15 @@ const LearnWordsPage = () => {
         <div className={styles.definition}>{currentWord?.definition}</div>
 
         <button
-          // className={darkStyle('submit', styles)}
           className={darkClass('submit', styles, isDark)}
           onClick={() => checkWord()}
         >check
         </button>
+
+        {showCongratsModal &&
+          <ToastModal msg={'congratulations you learned this word!'} time={3000}
+                      afterClose={() => setShowCongratsModal(false)}
+          />}
 
         <div
           className={`${styles.wordTranslate} ${isDark && styles['wordTranslate--dark']}`}

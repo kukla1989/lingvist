@@ -1,7 +1,9 @@
+import React, { useState } from "react";
+
 import styles from "./WordsItem.module.scss";
-import React from "react";
 import { Word } from "../../assets/types.tsx";
 import CloseButtonSVG from "../../assets/icons/CloseButtonSVG.tsx";
+import { increaseWordCountRepeat } from "../../_utils/helpers.ts";
 
 interface WordProps {
   word: Word;
@@ -18,12 +20,17 @@ const WordsItem: React.FC<WordProps> = ({
   },
   deleteUserWord
 }) => {
+  const [count, setCount] = useState(countRepeat);
+
+  function setCounterRepeatToZero(wordId: number) {
+    increaseWordCountRepeat(wordId, 0);
+    setCount(0);
+  }
 
   return (
     <div className={styles.wordsItem}>
       <div className={styles.wordWrapper}>
         <div className={styles.word}>{word}</div>
-
 
         <div className={styles.delete} onClick={() => {
           deleteUserWord(wordId || null)
@@ -42,8 +49,12 @@ const WordsItem: React.FC<WordProps> = ({
         </div>
 
         <div className={styles.verticalBar}>|</div>
-
-        <div className={styles.bottomElement}>Повторень: {countRepeat}</div>
+        {count == 5 ? (
+            <button onClick={() => setCounterRepeatToZero(wordId)}
+                    className={styles.learnAgain}>learn again</button>)
+          : (<div
+            className={styles.bottomElement}>Повторень: {count}</div>)
+        }
       </div>
 
       <div className={styles.bottomLine}></div>

@@ -45,9 +45,14 @@ export async function getUserWords() {
   return await res.json()
 }
 
-export async function increaseWordCountRepeat(wordId: number) {
+export async function increaseWordCountRepeat(wordId: number, amount: number) {
   const api = getBackendApi();
-  const res = await fetch(`${api}/userwords/${wordId}/repeat`, {
+  let amountStr = '';
+  if (amount !== undefined) {
+    amountStr = `/${amount}`;
+  }
+
+  const res = await fetch(`${api}/userwords/${wordId}/repeat` + amountStr, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",

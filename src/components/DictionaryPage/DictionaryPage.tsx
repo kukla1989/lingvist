@@ -20,6 +20,10 @@ const DictionaryPage = () => {
 
   const handleSubmit = async (e: React.FormEvent | React.MouseEvent) => {
     e.preventDefault()
+    if (!word) {
+      return;
+    }
+
     await searchWord(word)
   }
 

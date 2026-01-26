@@ -1,13 +1,13 @@
 export interface Word {
   word: string;
   translation: string;
-  countRepeat: 1 | 2 | 3 | 4 | 5;
+  countRepeat: 0 | 1 | 2 | 3 | 4 | 5;
   sentence?: string;
   word_place?: number;
   ukr_sentence?: string;
   definition: string;
   lastDate: Date;
-  wordId?: number;
+  wordId: number;
 }
 
 export interface TranslationEntry {

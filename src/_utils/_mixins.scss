@@ -93,15 +93,15 @@
   font-size: 20px;
   transition: background-color $transition ease,
   color $transition ease;
+  color: var(--mainText);
 
   &:hover {
     background-color: $cDark;
-    color: $cWhite;
+    color: $cLightOrange;
   }
 
   &--dark {
     border: 1px solid $cGray300;
-    color: $cGrayWarm;
   }
 }
 

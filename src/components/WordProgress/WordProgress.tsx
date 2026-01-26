@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 const maxLevel = 5;
 
 interface WordProgressProps {
-  level: 1 | 2 | 3 | 4 | 5;
+  level: 0 | 1 | 2 | 3 | 4 | 5;
 }
 
 const WordProgress: React.FC<WordProgressProps> = ({ level }) => {
