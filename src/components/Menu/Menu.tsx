@@ -12,6 +12,7 @@ import DarkMode from "../DarkMode/DarkMode.tsx";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../store/authSlice.ts";
 import { RootState } from "../../store/store.ts";
+import BlogSVG from "../../assets/icons/BlogSVG.tsx";
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -59,6 +60,18 @@ const Menu = () => {
                 <WordsListSVG />
               </div>
               words list
+            </NavLink>
+          </li>
+
+          <li className={styles.navitem}>
+            <NavLink
+              to="/blog"
+              className={({ isActive }) => `${styles.navlink} ${isActive ? styles.active : ""}`}
+            >
+              <div className={styles.iconWrapper}>
+                <BlogSVG iconColor={vars.cBlueGray} />
+              </div>
+              blog
             </NavLink>
           </li>
 

@@ -35,6 +35,8 @@ root.render(
             <Route path="/home" element={<LearnWordsPage />} />
             <Route path="/dictionary" element={<DictionaryPage />} />
             <Route path="/words-list" element={<WordsListPage />} />
+            <Route path="blog" element={<BlogPage />} />
+            <Route path="article/:id" element={<ArticlePage />} />
           </Route>
 
           <Route
