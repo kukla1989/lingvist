@@ -28,4 +28,10 @@
   &:hover {
     color: $cLightOrange;
   }
+
+  @include onPhone {
+    width: auto;
+  }
 }
+
+@include img;

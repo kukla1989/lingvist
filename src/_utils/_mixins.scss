@@ -155,3 +155,15 @@ $textWidth: 650px;
   align-items: center;
   margin: 0 3%;
 }
+
+@mixin img {
+  .img {
+    width: 40%;
+    margin: 0 auto;
+    object-fit: contain;
+
+    @include onPhone {
+      width: 100%;
+    }
+  }
+}

@@ -9,6 +9,12 @@
   border-radius: 30px;
 
   background-color: rgb(0, 0, 0, 0.1);
+
+  @include onPhone {
+    flex-direction: column;
+    padding: 10px;
+    gap: 10px;
+  }
 }
 
 .title {

@@ -3,6 +3,7 @@
 
 .articlePage {
   min-height: 100vh;
+  color: var(--mainText);
 }
 
 .top {
@@ -18,6 +19,7 @@
 }
 
 .topLeft {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

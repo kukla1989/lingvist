@@ -17,11 +17,5 @@
   @include subtitle;
 }
 
-.img {
-  width: 750px;
 
-  @include onPhone {
-    width: auto;
-    max-width: 96%;
-  }
-}
+@include img;
