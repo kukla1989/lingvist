@@ -80,6 +80,11 @@
 
     &::placeholder {
       color: $cLightBlue;
+      font-size: 18px;
+
+      @include onPhone {
+        font-size: 12px;
+      }
     }
   }
 }

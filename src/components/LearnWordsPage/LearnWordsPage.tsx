@@ -56,7 +56,7 @@ const LearnWordsPage = () => {
   }, [])
 
   const checkWord = () => {
-    if (userWord === currentWord.word.trim()) {
+    if (userWord.toLowerCase() === currentWord.word.trim()) {
       currentWord.countRepeat++;
       if (!currentWord.wordId) {
         console.error('currentWord.wordId is undefined');
