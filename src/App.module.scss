@@ -1,4 +1,5 @@
 @use "_utils/vars" as *;
+@use "./_utils/mixins" as *;
 
 .app {
   display: flex;
@@ -8,6 +9,11 @@
   font-family: "Noto Serif", "Times New Roman", serif;
   background-color: var(--cBackground);
   font-size: 24px;
+
+  @include onPhone {
+    flex-direction: column;
+    padding-top: 100px;
+  }
 }
 
 

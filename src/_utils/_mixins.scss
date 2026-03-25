@@ -12,6 +12,12 @@
   }
 }
 
+@mixin onDesktop620 {
+  @media (min-width: 620px) {
+    @content;
+  }
+}
+
 @mixin card {
   width: 90%;
   padding: 20px;

@@ -4,6 +4,9 @@
 $menuWidth: 35px;
 
 .menu {
+}
+
+.desktopMenu {
   width: $menuWidth;
   min-height: 100vh;
   padding: 20px;
@@ -18,11 +21,13 @@ $menuWidth: 35px;
   }
 
   @include onPhone {
-    padding: 5px;
+    display: none;
+  }
+}
 
-    &:hover {
-      width: $menuWidth;
-    }
+.phoneMenu {
+  @include onDesktop620 {
+    display: none;
   }
 }
 
