@@ -11,18 +11,18 @@ import WordsListSVG from "../../assets/icons/WordsListSVG";
 import LogOutSVG from "../../assets/icons/LogOutSVG.tsx";
 
 import MobileHeader from "../MobileHeader/MobileHeader.tsx";
-import styles from "./Menu.module.scss";
+import styles from "./Header.module.scss";
 import DarkMode from "../DarkMode/DarkMode.tsx";
 import { variables as vars } from "../../_utils/variables.tsx";
 import { logout } from "../../store/authSlice.ts";
 import { RootState } from "../../store/store.ts";
 
-const Menu = () => {
+const Header = () => {
   const dispatch = useDispatch();
   const user = useSelector((state: RootState) => state.auth.user);
 
   return (
-    <header className={styles.menu}>
+    <header className={styles.header}>
       <div className={styles.desktopMenu}>
         <Link to="/" className={styles.logo}>
           <div className={styles.iconWrapper}>
@@ -106,4 +106,4 @@ const Menu = () => {
   );
 };
 
-export default Menu;
+export default Header;

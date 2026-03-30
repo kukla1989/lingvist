@@ -1,0 +1,82 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.mobileNav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  list-style: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+
+  background-color: $cGray400;
+}
+
+
+.menuItem {
+  @include zIndexTop;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+  color: $cDark;
+  font-size: 23px;
+
+  &::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.auth {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+@mixin authItem {
+  @include zIndexTop;
+
+  width: 70%;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-weight: 500;
+  box-sizing: border-box;
+  border-radius: 16px;
+  text-decoration: none;
+}
+
+$authWidth: 100px;
+
+.logOut {
+  @include authItem;
+
+  width: $authWidth;
+  background-color: $cDark;
+  color: $cWhite;
+
+  &:hover {
+    background-color: $cLightDark;
+  }
+}
+
+.active {
+  background-color: var(--cActive)
+}
