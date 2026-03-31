@@ -23,6 +23,7 @@ interface ShowMoreType {
 function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
   const [showMore, setShowMore] = useState<ShowMoreType>({});
   const [showModal, setShowModal] = useState(false);
+  const [showLoadingModal, setShowLoadingModal] = useState(false);
   const [modalMsg, setModalMsg] = useState('');
   const {
     word,
@@ -50,6 +51,8 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
 
   const handleAddWord = async (word: string, definition: string, translation: string, example: string | null) => {
 
+    console.log('handleAddWord')
+    setShowLoadingModal(true)
     const res = await fetch(`${getBackendApi()}/userWords/add`, {
       method: "POST",
       headers: {
@@ -67,6 +70,7 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
     const result = await res.json()
     setModalMsg(result.error || result.msg)
     setShowModal(true)
+    setShowLoadingModal(false)
   }
 
   return (
@@ -136,6 +140,9 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
                                 {showModal && <ToastModal msg={modalMsg} time={1500}
                                   afterClose={() => setShowModal(false)}
                                 />}
+                                {showLoadingModal && <ToastModal msg={'loading'} time={3000}
+                                />}
+
                               </div>
                             ))}
                           </div>
