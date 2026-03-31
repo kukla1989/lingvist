@@ -42,7 +42,7 @@ function Article4() {
         learning schedule.
       </p>
 
-      <img src={img1} alt="forgetting curve" className={styles.img} />
+      <img src={img1} alt="forgetting curve" className={`${styles.img} ${styles.img1}`} />
 
       <SelfAd />
 
