@@ -16,6 +16,7 @@ import DarkMode from "../DarkMode/DarkMode.tsx";
 import { variables as vars } from "../../_utils/variables.tsx";
 import { logout } from "../../store/authSlice.ts";
 import { RootState } from "../../store/store.ts";
+import SettingsSVG from "../../assets/icons/SettingsSVG.tsx";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -76,6 +77,16 @@ const Header = () => {
                   <BlogSVG iconColor={vars.cBlueGray} />
                 </div>
                 blog
+              </NavLink>
+            </li>
+
+            <li className={styles.navitem}>
+              <NavLink
+                to="/settings"
+                className={({ isActive }) => `${styles.navlink} ${isActive ? styles.active : ""}`}
+              >
+                <SettingsSVG iconColor={vars.cBlueGray} />
+                settings
               </NavLink>
             </li>
 

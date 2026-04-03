@@ -16,6 +16,7 @@ import PublicRoute from "./components/PublicRoute.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import BlogPage from "./components/BlogPage/BlogPage.tsx";
 import ArticlePage from "./components/ArticlePage/ArticlePage.tsx";
+import SettingsPage from "./components/SettingsPage/SettingsPage.tsx";
 
 const root = createRoot(document.getElementById("root")!);
 root.render(
@@ -37,6 +38,7 @@ root.render(
             <Route path="/words-list" element={<WordsListPage />} />
             <Route path="blog" element={<BlogPage />} />
             <Route path="article/:id" element={<ArticlePage />} />
+            <Route path="settings" element={<SettingsPage />} />
           </Route>
 
           <Route
