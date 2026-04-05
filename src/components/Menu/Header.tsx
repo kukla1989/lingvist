@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import CardsSVG from "../../assets/icons/CardsSVG";
 import AddSVG from "../../assets/icons/AddSVG";
@@ -15,12 +15,10 @@ import styles from "./Header.module.scss";
 import DarkMode from "../DarkMode/DarkMode.tsx";
 import { variables as vars } from "../../_utils/variables.tsx";
 import { logout } from "../../store/authSlice.ts";
-import { RootState } from "../../store/store.ts";
 import SettingsSVG from "../../assets/icons/SettingsSVG.tsx";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const user = useSelector((state: RootState) => state.auth.user);
 
   return (
     <header className={styles.header}>
@@ -106,8 +104,6 @@ const Header = () => {
         <div className={styles.darkMode}>
           <DarkMode size={2.3} />
         </div>
-
-        <div className={styles.userInfo}>{`${user?.name} ${user?.email}`}</div>
       </div>
 
       <div className={styles.phoneMenu}>
