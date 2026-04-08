@@ -7,7 +7,7 @@ import Modal from "../Modal/Modal.tsx";
 import {
   darkClass,
   getUserWords,
-  increaseWordCountRepeat
+  increaseWordCountRepeat, switchBlurUkrTranslation
 } from "../../_utils/helpers.ts";
 import { Word } from "../../assets/types.tsx";
 import Loading from "../Loading/Loading.tsx";
@@ -20,6 +20,7 @@ const LearnWordsPage = () => {
   const [isNoWords, setIsNoWords] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
   const [showCongratsModal, setShowCongratsModal] = useState(false);
+  const [isBlurUkrTranslation, setIsBlurUkrTranslation] = useState(false);
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const location = useLocation();
@@ -83,6 +84,11 @@ const LearnWordsPage = () => {
       setIsIncorrectWord(false)
       setUserWord('')
     }, 1100)
+  }
+
+  const switchBlurUkrTranslationHandler = () => {
+    switchBlurUkrTranslation();
+    setIsBlurUkrTranslation(!isBlurUkrTranslation);
   }
 
   const isDark = useIsDark();
@@ -150,8 +156,9 @@ const LearnWordsPage = () => {
           />}
 
         <div
-          className={`${styles.wordTranslate} ${isDark && styles['wordTranslate--dark']}`}
+          className={`${styles.wordTranslate} ${isDark && styles['wordTranslate--dark']} ${isBlurUkrTranslation ? styles.blur : ''}`}
           style={{ marginTop: currentWord?.definition?.length > 140 ? 17 : 70 }}
+          onClick={switchBlurUkrTranslationHandler}
         >
           {currentWord?.translation}
         </div>

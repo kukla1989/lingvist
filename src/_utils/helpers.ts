@@ -64,3 +64,11 @@ export async function increaseWordCountRepeat(wordId: number, amount: number) {
     throw new Error('failed to increase count repeat');
   }
 }
+
+export function getIsBlurUkrTranslation() {
+  return localStorage.getItem('isBlurUkrTranslation') === 'true';
+}
+
+export function switchBlurUkrTranslation() {
+  localStorage.setItem('isBlurUkrTranslation', (getIsBlurUkrTranslation() ? 'false' : 'true'));
+}

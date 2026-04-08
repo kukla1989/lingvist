@@ -85,6 +85,10 @@
   }
 }
 
+.blur {
+  filter: blur(5px);
+}
+
 .wordTranslate--dark {
   color: $cGrayWarm;
 }
