@@ -5,7 +5,7 @@ import { useIsDark } from "../../hooks/useIsDark.ts";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Modal from "../Modal/Modal.tsx";
 import {
-  darkClass,
+  darkClass, getIsBlurUkrTranslation,
   getUserWords,
   increaseWordCountRepeat, switchBlurUkrTranslation
 } from "../../_utils/helpers.ts";
@@ -20,7 +20,7 @@ const LearnWordsPage = () => {
   const [isNoWords, setIsNoWords] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
   const [showCongratsModal, setShowCongratsModal] = useState(false);
-  const [isBlurUkrTranslation, setIsBlurUkrTranslation] = useState(false);
+  const [isBlurUkrTranslation, setIsBlurUkrTranslation] = useState(getIsBlurUkrTranslation());
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
   const location = useLocation();

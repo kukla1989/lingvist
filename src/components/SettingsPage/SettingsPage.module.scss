@@ -35,10 +35,14 @@
 }
 
 .left {
-  width: 100px;
+  width: 200px;
 }
 
 .right {
   width: 150px;
+}
+
+.button {
+  @include button;
 }
 

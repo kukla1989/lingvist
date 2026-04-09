@@ -41,6 +41,12 @@ const MobileNav: React.FC<MobileNavProps> = React.memo(({ closeMenu }) => {
         blog
       </NavLink>
 
+      <NavLink to="/settings"
+               className={({ isActive }) => `${styles.menuItem} ${isActive ? styles.active : ""}`}
+               onClick={closeMenu}>
+        settings
+      </NavLink>
+
       <NavLink className={`${styles.menuItem} ${styles.logOut}`} to="/welcome"
                onClick={() => dispatch(logout())}
       >
