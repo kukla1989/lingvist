@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import WordProgress from "../WordProgress/WordProgress";
 import styles from "./LearnWordsPage.module.scss";
 import { useIsDark } from "../../hooks/useIsDark.ts";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Modal from "../Modal/Modal.tsx";
 import {
   darkClass, getIsBlurUkrTranslation,
@@ -23,16 +23,15 @@ const LearnWordsPage = () => {
   const [isBlurUkrTranslation, setIsBlurUkrTranslation] = useState(getIsBlurUkrTranslation());
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
-  const location = useLocation();
-  const navigate = useNavigate();
+  const [loginModalMsg, setLoginModalMsg] = useState<string>('')
 
   useEffect(() => {
-    if (location.state?.showModal === true) {
-      setIsLoginModalOpen(true)
-      navigate(location.pathname, {
-        state: { ...location.state, showModal: false, msg: null },
-        replace: true
-      });
+    const loginMsg = localStorage.getItem('loginMsg');
+    if (loginMsg) {
+      console.log(loginMsg, 'loginMsg')
+      setLoginModalMsg(loginMsg);
+      setIsLoginModalOpen(true);
+      localStorage.removeItem('loginMsg');
     }
 
     const load = async () => {
@@ -165,7 +164,7 @@ const LearnWordsPage = () => {
       </div>
 
       {isLoginModalOpen && <Modal onClose={() => setIsLoginModalOpen(false)}
-                                  msg={location.state?.msg} />}
+                                  msg={loginModalMsg} />}
     </div>
   );
 };

@@ -14,7 +14,7 @@ const SettingsSvg: React.FC<SettingsSvgProps> = ({ iconColor = '#626c91' }) => {
       width="30px"
       fill="none"
       viewBox="0 0 24 24"
-      style={{ marginLeft: '10px' }}
+      style={{ margin: '0 6px' }}
     >
       <circle cx="12" cy="12" r="3" stroke={color}
               strokeWidth="1.5"></circle>

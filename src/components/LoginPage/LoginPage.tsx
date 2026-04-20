@@ -34,13 +34,8 @@ const LoginPage = () => {
         setError(data.error || "Invalid credentials");
       } else {
         dispatch(loginSuccess({ token: data.token, user: data.user }));
-        navigate("/", {
-          state: {
-            showModal: true,
-            user: formData.namEmail,
-            msg: (`You are logged in as ${data.user.name}`)
-          }
-        });
+        localStorage.setItem("loginMsg", `You are logged in as ${data.user.name}`)
+        navigate("/");
       }
     } catch (err) {
       console.error(err);
