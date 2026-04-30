@@ -5,9 +5,11 @@ const maxLevel = 5;
 
 interface WordProgressProps {
   level: 0 | 1 | 2 | 3 | 4 | 5;
+  onClick?: () => void;
 }
 
-const WordProgress: React.FC<WordProgressProps> = ({ level }) => {
+const WordProgress: React.FC<WordProgressProps> = ({ level, onClick }) => {
+  const showLearnMore = !!onClick;
   const levels = [];
   for (let ind = 0; ind < maxLevel; ind++) {
     let levelClassName = "";
@@ -46,11 +48,12 @@ const WordProgress: React.FC<WordProgressProps> = ({ level }) => {
     );
   }
 
-  return <div className={styles.wordProgress}>
+  return (<div
+    className={`${styles.wordProgress} ${showLearnMore && styles.clickable}`}
+    onClick={onClick}>
     {levels}
-    <div className={styles.learnMore}>дізнатися більше</div>
-    
-    </div>;
+    {showLearnMore && <div className={styles.learnMore}>дізнатися більше</div>}
+  </div>);
 };
 
 export default WordProgress;

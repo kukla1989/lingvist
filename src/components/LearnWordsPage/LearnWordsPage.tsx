@@ -12,6 +12,7 @@ import {
 import { Word } from "../../assets/types.tsx";
 import Loading from "../Loading/Loading.tsx";
 import ToastModal from "../ToastModal/ToastModal.tsx";
+import WordProgressInfo from "../ProgressBarInfo/WordProgressInfo.tsx";
 
 const LearnWordsPage = () => {
   const [userWord, setUserWord] = useState("");
@@ -20,6 +21,7 @@ const LearnWordsPage = () => {
   const [isNoWords, setIsNoWords] = useState<boolean>(false);
   const [loading, setLoading] = useState(true);
   const [showCongratsModal, setShowCongratsModal] = useState(false);
+  const [showWordProgressInfo, setShowWordProgressInfo] = useState<boolean>(false);
   const [isBlurUkrTranslation, setIsBlurUkrTranslation] = useState(getIsBlurUkrTranslation());
 
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false)
@@ -122,7 +124,7 @@ const LearnWordsPage = () => {
       <div
         className={`${darkClass('card', styles, isDark)} ${styles.learnCard}`}
       >
-        <WordProgress level={currentWord?.countRepeat} />
+        <WordProgress level={currentWord?.countRepeat} onClick={() => setShowWordProgressInfo(true)}/>
 
         <div className={styles.sentence}>
           <span className={styles.senteceBegin}>{sentenceBeg}</span>
@@ -165,6 +167,7 @@ const LearnWordsPage = () => {
 
       {isLoginModalOpen && <Modal onClose={() => setIsLoginModalOpen(false)}
                                   msg={loginModalMsg} />}
+      {showWordProgressInfo && <WordProgressInfo onClose={() => setShowWordProgressInfo(false)}/>}
     </div>
   );
 };

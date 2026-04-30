@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 interface ModalProps {
   isOpen?: boolean;
-  msg: string;
+  msg: string | React.ReactNode;
   onClose: (
     e?: React.MouseEvent<HTMLElement> | React.KeyboardEvent
   ) => void;

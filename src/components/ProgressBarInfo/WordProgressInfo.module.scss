@@ -1,0 +1,46 @@
+@use "../../_utils/mixins" as *;
+@use "../../_utils/vars" as *;
+
+.wordProgressInfo {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  z-index: 10;
+
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--mainBG);
+  color: var(--mainText);
+  border-radius: 40px;
+
+  @media (max-width: 900px) {
+    padding: 5px;
+    border-radius: 15px;
+    transform: none;
+
+    top: 20%;
+    left: 2%;
+    right: 2%
+  }
+}
+
+.progress {
+}
+
+.progressLevel {
+  display: flex;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  backdrop-filter: blur(10px);
+}
