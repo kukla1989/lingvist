@@ -104,7 +104,7 @@ const LearnWordsPage = () => {
     sentenceEnd = sentenceArr.slice(currentWord.word_place + 1).join(' ');
   }
 
-  if (loading) return <Loading />
+  if (loading) return <Loading text={'loading words'} loadingSpinnerSize={40}/>
 
   if (isNoWords || words.length === 0) return (
     <div className={styles.noWords}>

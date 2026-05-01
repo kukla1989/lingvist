@@ -1,0 +1,18 @@
+.loadingSpinnerContainer {
+  display: flex;
+}
+
+.loadingSpinner {
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  border: calc(var(--spinner-size) / 10) solid rgba(0, 0, 0, 0.1);
+  border-left-color: var(--cMainText);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

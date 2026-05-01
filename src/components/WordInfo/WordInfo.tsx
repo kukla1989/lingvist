@@ -140,7 +140,7 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
                                 {showModal && <ToastModal msg={modalMsg} time={1500}
                                   afterClose={() => setShowModal(false)}
                                 />}
-                                {showLoadingModal && <ToastModal msg={'loading'} time={3000}
+                                {showLoadingModal && <ToastModal msg={'loading...'} time={3000}
                                 />}
 
                               </div>
