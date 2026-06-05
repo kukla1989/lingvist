@@ -59,6 +59,10 @@
   @include onPhone {
     display: none;
   }
+
+  @media (max-width: 1028px) {
+    margin-bottom: 13px;
+  }
 }
 
 .topImg {

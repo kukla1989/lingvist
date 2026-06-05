@@ -10,7 +10,8 @@ $menuWidth: 35px;
   width: $menuWidth;
   min-height: 100vh;
   padding: 20px;
-  position: relative;
+  position: sticky;
+  top: 0;
 
   transition: width $transition ease;
   background-color: var(--mainBG);
