@@ -104,7 +104,7 @@ const LearnWordsPage = () => {
     sentenceEnd = sentenceArr.slice(currentWord.word_place + 1).join(' ');
   }
 
-  if (loading) return <Loading text={'loading words'} loadingSpinnerSize={40}/>
+  if (loading) return <Loading text={'loading words'} loadingSpinnerSize={40} />
 
   if (isNoWords || words.length === 0) return (
     <div className={styles.noWords}>
@@ -124,50 +124,57 @@ const LearnWordsPage = () => {
       <div
         className={`${darkClass('card', styles, isDark)} ${styles.learnCard}`}
       >
-        <WordProgress level={currentWord?.countRepeat} onClick={() => setShowWordProgressInfo(true)}/>
+        <div className={styles.top}>
+          <WordProgress level={currentWord?.countRepeat}
+                        onClick={() => setShowWordProgressInfo(true)} />
 
-        <div className={styles.sentence}>
-          <span className={styles.senteceBegin}>{sentenceBeg}</span>
+          <div className={styles.sentence}>
+            <span className={styles.senteceBegin}>{sentenceBeg}</span>
 
-          <input
-            className={`${styles.userWord} ${isIncorrectWord ? styles.incorrectWord : ''} ${isDark && styles['input--dark']}`}
-            value={userWord}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserWord(e.target.value)}
-            onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
-              if (e.key === 'Enter') {
-                checkWord();
-              }
-            }}
-            style={{ width: 8 * currentWord?.word?.length + 50 + "px" }}
-          />
-          <span className={styles.senteceEnd}>{sentenceEnd}</span>
+            <input
+              className={`${styles.userWord} ${isIncorrectWord ? styles.incorrectWord : ''} ${isDark && styles['input--dark']}`}
+              value={userWord}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setUserWord(e.target.value)}
+              onKeyDown={(e: React.KeyboardEvent<HTMLInputElement>) => {
+                if (e.key === 'Enter') {
+                  checkWord();
+                }
+              }}
+              style={{ width: 8 * currentWord?.word?.length + 50 + "px" }}
+            />
+            <span className={styles.senteceEnd}>{sentenceEnd}</span>
+          </div>
+
+          <div className={styles.definition}>{currentWord?.definition}</div>
+
+          <button
+            className={darkClass('submit', styles, isDark)}
+            onClick={() => checkWord()}
+          >check
+          </button>
+
+          {showCongratsModal &&
+            <ToastModal msg={'congratulations you learned this word!'}
+                        time={3000}
+                        afterClose={() => setShowCongratsModal(false)}
+            />}
+
         </div>
 
-        <div className={styles.definition}>{currentWord?.definition}</div>
-
-        <button
-          className={darkClass('submit', styles, isDark)}
-          onClick={() => checkWord()}
-        >check
-        </button>
-
-        {showCongratsModal &&
-          <ToastModal msg={'congratulations you learned this word!'} time={3000}
-                      afterClose={() => setShowCongratsModal(false)}
-          />}
-
-        <div
-          className={`${styles.wordTranslate} ${isDark && styles['wordTranslate--dark']} ${isBlurUkrTranslation ? styles.blur : ''}`}
-          style={{ marginTop: currentWord?.definition?.length > 140 ? 17 : 70 }}
-          onClick={switchBlurUkrTranslationHandler}
-        >
-          {currentWord?.translation}
+        <div className={darkClass('bottom', styles, isDark)}>
+          <div
+            className={`${styles.wordTranslate} ${isDark && styles['wordTranslate--dark']} ${isBlurUkrTranslation ? styles.blur : ''}`}
+            onClick={switchBlurUkrTranslationHandler}
+          >
+            {currentWord?.translation}
+          </div>
         </div>
       </div>
 
       {isLoginModalOpen && <Modal onClose={() => setIsLoginModalOpen(false)}
                                   msg={loginModalMsg} />}
-      {showWordProgressInfo && <WordProgressInfo onClose={() => setShowWordProgressInfo(false)}/>}
+      {showWordProgressInfo &&
+        <WordProgressInfo onClose={() => setShowWordProgressInfo(false)} />}
     </div>
   );
 };
