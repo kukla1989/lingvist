@@ -28,6 +28,16 @@
   }
 }
 
+.wikiLink {
+  text-decoration: underline;
+  color: var(--cOrange);
+  transition: color $transition ease-in-out;
+
+  &:hover {
+    color: $cTeal;
+  }
+}
+
 .progress {
 }
 

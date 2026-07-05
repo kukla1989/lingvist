@@ -2,13 +2,13 @@ import styles from "./WordProgressInfo.module.scss";
 import Line from "../Line/Line.tsx";
 import WordProgress from "../WordProgress/WordProgress.tsx";
 import { useEffect } from "react";
+import WikipediaSVG from "../../assets/icons/WikipediaSVG.tsx";
 
 interface WordProgressInfoProps {
   onClose: () => void;
 }
 
 function WordProgressInfo({ onClose }: WordProgressInfoProps) {
-
   useEffect(() => {
     const handler = (e: KeyboardEvent) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", handler);
@@ -23,7 +23,16 @@ function WordProgressInfo({ onClose }: WordProgressInfoProps) {
         </div>
 
         <div className={styles.p}>
-          Lingvist's algorithms use a spaced repetition system: we show you
+          Lingvist&#39;s algorithms use a{" "}
+          <a className={styles.wikiLink}
+             href="https://en.wikipedia.org/wiki/Spaced_repetition"
+             target="_blank"
+             rel="noopener noreferrer"
+          >
+            spaced repetition system
+            <WikipediaSVG />
+          </a>
+          : we show you
           words
           to repeat and recall. The scores on this scale can either increase or
           decrease over time.
