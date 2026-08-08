@@ -2,7 +2,7 @@ import styles from "./WordInfo.module.scss";
 import { TranslationEntry, WordType } from "../../assets/types.tsx";
 import { v4 as uuidv4 } from "uuid";
 import {
-  getAuthorization,
+  fetchWithAuth,
   getBackendApi,
   removeBraces
 } from "../../_utils/helpers.ts";
@@ -53,11 +53,10 @@ function WordInfo({ wordInfo, searchWord }: WordInfoProps) {
 
     console.log('handleAddWord')
     setShowLoadingModal(true)
-    const res = await fetch(`${getBackendApi()}/userWords/add`, {
+    const res = await fetchWithAuth(`${getBackendApi()}/userWords/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        ...getAuthorization(),
       },
       body: JSON.stringify({
         word,

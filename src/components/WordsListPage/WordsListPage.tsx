@@ -6,7 +6,7 @@ import WordsItem from "../WordsItem/WordsItem";
 import Loading from "../Loading/Loading.tsx";
 import { Word } from "../../assets/types";
 import {
-  getAuthorization,
+  fetchWithAuth,
   getBackendApi,
   getUserWords
 } from "../../_utils/helpers.ts";
@@ -22,11 +22,10 @@ const WordsListPage = () => {
       return;
     }
 
-    const res = await fetch(`${getBackendApi()}/userwords/${wordId}`, {
+    const res = await fetchWithAuth(`${getBackendApi()}/userwords/${wordId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        ...getAuthorization(),
       },
     })
     setWords(words.filter(word => word.wordId !== +wordId))
